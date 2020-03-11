@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2020 at 02:40 PM
+-- Generation Time: Mar 11, 2020 at 03:11 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -36,7 +36,9 @@ CREATE TABLE `asuransi` (
   `form_bukti_transfer` varchar(70) NOT NULL,
   `form_buku_tabungan` varchar(70) NOT NULL,
   `status` int(2) NOT NULL,
-  `keterangan` text NOT NULL
+  `keterangan` text NOT NULL,
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tgl_ganti_status` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -52,7 +54,9 @@ CREATE TABLE `pengajuan_klaim` (
   `form_identitas` varchar(70) NOT NULL,
   `form_polis` varchar(70) NOT NULL,
   `status` int(2) NOT NULL,
-  `keterangan` text NOT NULL
+  `keterangan` text NOT NULL,
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tgl_perubahan_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -66,7 +70,9 @@ CREATE TABLE `perpanjangan_polis` (
   `nama_pemegang_polis` varchar(50) NOT NULL,
   `form_identitas` varchar(70) NOT NULL,
   `status` int(2) NOT NULL,
-  `keterangan` text NOT NULL
+  `keterangan` text NOT NULL,
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tgl_perubahan_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -101,6 +107,13 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `role` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`iduser`, `username`, `password`, `role`) VALUES
+(1, 'admin', '098f6bcd4621d373cade4e832627b4f6', 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +207,7 @@ ALTER TABLE `status_polis`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_role`
