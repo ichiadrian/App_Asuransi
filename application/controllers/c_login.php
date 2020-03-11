@@ -4,6 +4,7 @@
 
         function __construct(){
             parent::__construct();
+            $this->load->model('m_data');
         }
         //Menampilkan Function Index
         public function index(){
@@ -12,31 +13,33 @@
 
         //Validasi login
         function aksi_login(){
-            $username = $this->input->POST('username'); 
-            $password = $this->input->POST('password');
+            // $this->output->enable_profiler(TRUE);
+
+            $username = $this->input->POST('username',TRUE); 
+            $password = $this->input->POST('password',TRUE);
             //required adalah wajib di isi
             $this->form_validation->set_rules('username','Username','required');
             $this->form_validation->set_rules('password','Password','required');
 
             if($this->form_validation->run() != false){
-                $data = $where = array(
+                $where = array(
                             'username'=>$username,
                             'password'=>md5($password),
                             'role'=>'1'
                             );
-                // var_dump($where);
-                // die();
-                //kondisi ke-1 apabila login sebagai admin
-                if($data['role']=='1'){
-                    $cek = $this->m_data->cek_login($where,'1')->num_rows();
-                    $data = $this->m_data->cek_login($where,'1')->row();
 
-                    if($cek > 0){
+                //kondisi ke-1 apabila login sebagai admin
+                if($where['role']=='1'){
+                    $cek_login = $this->m_data->cek_login($where,'users')->num_rows();
+                    $data = $this->m_data->cek_login($where,'users')->row();
+                    
+                    if($cek_login > 0){
                         $data_session = array(
                                             'iduser'=> $data->iduser,
                                             'username'=>$data->username,
-                                            'role'=>'1'
+                                            'role'=>$data->role
                                             );
+
                         $this->session->set_userdata($data_session);
                         redirect(base_url().'c_admin');
                     }else{

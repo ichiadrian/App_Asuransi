@@ -7,6 +7,7 @@ class M_data extends CI_Model{
         function cek_login($where,$data){
             return $this->db->get_where($data,$where);
         }
+
     // fungsi untuk mengambil data dari database
         function get_data($table){
             return $this->db->get($table);

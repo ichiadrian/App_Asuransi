@@ -5,20 +5,18 @@ class C_admin extends CI_Controller {
     function __construct(){
             parent::__construct();
             // cek session yang login, jika session status tidak sama dengan session admin_login,maka halaman akan di alihkan kembali ke halaman login.
-                // if($this->session->userdata('status')!="admin_login"){
-                // redirect(base_url().'c_login?alert=belum_login');
-                // }
+                if($this->session->userdata('role')!="1"){
+                redirect(base_url().'c_login?alert=belum_login');
+                }
     }
 
     // ======================================== VIEW ======================================== \\
 
     //untuk menampilkan ke halaman dashboard
     public function index(){
-        $query = "SELECT * FROM catalog_list ORDER BY tanggal_input DESC LIMIT 10";
-        $data['catalog'] = $this->m_data->raw_query($query)->result();
-        $this->load->view('admin/v_header');
-        $this->load->view('admin/v_index', $data);
-        $this->load->view('admin/v_footer');
+        $this->load->view('template/admin/v_header');
+        $this->load->view('template/admin/v_admin');
+        $this->load->view('template/admin/v_footer');
     }
 
     //untuk menampilkan ke halaman produk 
