@@ -12,7 +12,7 @@
     <div class="container">
         <br /><br /><br /><br />
         <!-- <h3 class="font-weight-normal text-center text-white">SISTEM INFORMASI</h3> -->
-        <h2 class="font-weight-normal text-center text-white mb-5"><b>i- Catalog</b></h2>
+        <h2 class="font-weight-normal text-center text-white mb-5"><b>Management</b></h2>
         <div class="col-md-4 offset-md-4">
             <div class="card">
                 <div class="card-body">
@@ -43,10 +43,6 @@
                         </div>
                         <div class="form-group">
                             <label for="sebagai">Login Sebagai :</label>
-                            <select name="sebagai" class="form-control">
-                                <option value="admin">Admin</option>
-                                <option value="petugas">Petugas</option>
-                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
