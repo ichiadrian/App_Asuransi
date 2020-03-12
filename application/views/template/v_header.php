@@ -49,6 +49,12 @@
   <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/summernote/summernote-bs4.css'?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- css datatables -->
+  <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/DataTables/datatables.css' ?>"> -->
+  <!-- js datatables -->
+  <!-- <script type="text/javascript" src="<?php echo base_url().'assets/DataTables/datatables.js' ?>"></script> -->
+  <!-- jquery dan bootstrap js -->
+  <!-- <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js' ?>"></script> -->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -126,7 +132,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
+                  <a href="<?php echo base_url().$ctrl.'/daftar_user' ?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View User</p>
                   </a>

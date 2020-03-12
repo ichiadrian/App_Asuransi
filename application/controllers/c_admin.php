@@ -20,12 +20,12 @@ class C_admin extends CI_Controller {
     }
 
     //untuk menampilkan ke halaman produk 
-    function produk(){
-        $query = "SELECT * FROM catalog_list ORDER BY TANGGAL_INPUT DESC";
-        $data['catalog'] = $this->m_data->raw_query($query)->result();
-        $this->load->view('admin/v_header');
-        $this->load->view('admin/v_produk', $data);
-        $this->load->view('admin/v_footer');
+    function daftar_user(){
+        $query = "SELECT iduser, username, rolename FROM users INNER JOIN user_role ON users.role = user_role.idrole";
+        $data['users'] = $this->m_data->raw_query($query)->result();
+        $this->load->view('template/v_header');
+        $this->load->view('template/admin/v_daftar_user', $data);
+        $this->load->view('template/v_footer');
     }
 
     // untuk edit data produk
