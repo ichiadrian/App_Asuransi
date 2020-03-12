@@ -14,8 +14,17 @@ class C_admin extends CI_Controller {
 
     //untuk menampilkan ke halaman dashboard
     public function index(){
+
+        $query = "SELECT 
+                    COUNT(IF(role = 1, 1, NULL)) AS Total_Admin,
+                    COUNT(IF(role = 2, 1, NULL)) AS Total_Helpdesk,
+                    COUNT(IF(role = 3, 1, NULL)) AS Total_Agency
+                FROM users;";
+        $data['total_user'] = $this->m_data->raw_query($query)->result()[0];
+
+
         $this->load->view('template/v_header');
-        $this->load->view('template/admin/v_admin_dashboard');
+        $this->load->view('template/admin/v_admin_dashboard', $data);
         $this->load->view('template/v_footer');
     }
     //form ubah password
@@ -49,7 +58,7 @@ class C_admin extends CI_Controller {
 
     // untuk view data produk
     function edit_user($id){
-        
+
         $where = array('iduser'=> $id);
         $data['data_user'] = $this->m_data->edit_data($where,'users')->result()[0];
 
