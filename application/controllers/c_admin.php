@@ -18,6 +18,12 @@ class C_admin extends CI_Controller {
         $this->load->view('template/admin/v_admin_dashboard');
         $this->load->view('template/v_footer');
     }
+    //form ubah password
+    public function change_password(){
+        $this->load->view('template/v_header');
+        $this->load->view('template/admin/v_change_password');
+        $this->load->view('template/v_footer');
+    }
 
     //untuk menampilkan ke halaman produk 
     function daftar_user(){

@@ -39,7 +39,7 @@ class C_agency extends CI_Controller {
 
     public function change_password(){
         $this->load->view('template/v_header');
-        $this->load->view();
+        $this->load->view('template/agency/v_change_password');
         $this->load->view('template/v_footer');
     }
 

@@ -19,6 +19,12 @@ class C_helpdesk extends CI_Controller {
         $this->load->view('template/v_footer');
     }
 
+    public function change_password(){
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_change_password');
+        $this->load->view('template/v_footer');
+    }
+
     function logout(){
         $this->session->sess_destroy();
         redirect(site_url().'c_login?alert=logout');
