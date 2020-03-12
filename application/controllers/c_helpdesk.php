@@ -21,7 +21,7 @@ class C_helpdesk extends CI_Controller {
 
     public function change_password(){
         $this->load->view('template/v_header');
-        $this->load->view('template/helpdesk/v_change_password');
+        $this->load->view('template/v_change_password');
         $this->load->view('template/v_footer');
     }
 

@@ -21,35 +21,44 @@ class C_admin extends CI_Controller {
     //form ubah password
     public function change_password(){
         $this->load->view('template/v_header');
-        $this->load->view('template/admin/v_change_password');
+        $this->load->view('template/v_change_password');
         $this->load->view('template/v_footer');
     }
 
-    //untuk menampilkan ke halaman produk 
+    //untuk menampilkan ke halaman user 
     function daftar_user(){
+
         $query = "SELECT iduser, username, rolename FROM users INNER JOIN user_role ON users.role = user_role.idrole";
         $data['users'] = $this->m_data->raw_query($query)->result();
+
         $this->load->view('template/v_header');
         $this->load->view('template/admin/v_daftar_user', $data);
         $this->load->view('template/v_footer');
     }
 
-    // untuk edit data produk
-    function produk_edit($id){
-        $where = array('id'=> $id);
-        $data['data_catalog'] = $this->m_data->edit_data($where,'catalog_list')->result();
-        $this->load->view('admin/v_header');
-        $this->load->view('admin/v_produk_edit',$data);
-        $this->load->view('admin/v_footer'); 
+    // untuk tambah data produk
+    function tambah_user(){
+
+        $query = "SELECT * FROM user_role";
+        $data['roles'] = $this->m_data->raw_query($query)->result();
+        
+        $this->load->view('template/v_header');
+        $this->load->view('template/admin/v_tambah_user', $data);
+        $this->load->view('template/v_footer'); 
     }
 
     // untuk view data produk
-    function produk_view($id){
-        $where = array('id'=> $id);
-        $data['data_catalog'] = $this->m_data->edit_data($where,'catalog_list')->result();
-        $this->load->view('admin/v_header');
-        $this->load->view('admin/v_produk_view',$data);
-        $this->load->view('admin/v_footer'); 
+    function edit_user($id){
+        
+        $where = array('iduser'=> $id);
+        $data['data_user'] = $this->m_data->edit_data($where,'users')->result()[0];
+
+        $query = "SELECT * FROM user_role";
+        $data['roles'] = $this->m_data->raw_query($query)->result();
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/admin/v_edit_user',$data);
+        $this->load->view('template/v_footer'); 
     }
 
     //untuk menampilkan ke halaman produk 

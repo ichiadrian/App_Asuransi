@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Daftar User</h1>
+                    <h1 class="m-0 text-dark px-2">Daftar User</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -24,36 +24,46 @@
             <!-- Small boxes (Stat box) -->
             <div class="row px-2">
 
-                <table id="table-user" class="table datatable table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th> <center>User Id</center></th>
-                            <th> <center>Username</center></th>
-                            <th> <center>Role</center></th>
-                            <th> <center>Edit</center></th>
-                            <th> <center>Delete</center></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                            if(!empty($users)){
-                                foreach ($users as $index => $user) {
-                        ?>
+                <div class="col">
 
-                            <tr>
-                                <td><center><?php echo $user->iduser; ?></center></td>
-                                <td><center><?php echo $user->username; ?></center></td>
-                                <td><center><?php echo $user->rolename; ?></center></td>
-                                <td><center> <a href="<?php echo base_url().'c_admin/v_user/'.$user->iduser; ?>"><i class="fas fa-edit text-success"></i></a> </center></td>
-                                <td><center> <a href="<?php echo base_url().'c_admin/delete_user/'.$user->iduser;?>"><i class="fa fa-trash text-danger"></i></a> </center></td>
-                            </tr>
+                    <div class="card">
+                        
+                        <div class="card-body">
+                            <table id="table-user" class="table datatable table-striped table-bordered" >
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th> <center>User Id</center></th>
+                                        <th> <center>Username</center></th>
+                                        <th> <center>Role</center></th>
+                                        <th> <center>Edit</center></th>
+                                        <th> <center>Delete</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        if(!empty($users)){
+                                            foreach ($users as $index => $user) {
+                                    ?>
 
-                        <?php
-                                }
-                            } 
-                        ?>
-                    </tbody>
-                </table>
+                                        <tr>
+                                            <td><center><?php echo $user->iduser; ?></center></td>
+                                            <td><center><?php echo $user->username; ?></center></td>
+                                            <td><center><?php echo $user->rolename; ?></center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_admin/edit_user/'.$user->iduser; ?>"><i class="fas fa-edit text-success"></i></a> </center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_admin/delete_user/'.$user->iduser;?>"><i class="fa fa-trash text-danger"></i></a> </center></td>
+                                        </tr>
+
+                                    <?php
+                                            }
+                                        } 
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -65,3 +75,10 @@
 </div>
 <!-- /.content-wrapper -->
 
+<script>
+
+    $(document).ready(function(){
+        $("#table-user").DataTable();
+    })
+
+</script>
