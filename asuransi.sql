@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2020 at 03:11 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Mar 12, 2020 at 08:13 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -113,7 +113,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`iduser`, `username`, `password`, `role`) VALUES
-(1, 'admin', '098f6bcd4621d373cade4e832627b4f6', 1);
+(1, 'admin', '098f6bcd4621d373cade4e832627b4f6', 1),
+(2, 'helpdesk', '098f6bcd4621d373cade4e832627b4f6', 2),
+(3, 'agency', '098f6bcd4621d373cade4e832627b4f6', 3);
 
 -- --------------------------------------------------------
 
@@ -207,7 +209,7 @@ ALTER TABLE `status_polis`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_role`
