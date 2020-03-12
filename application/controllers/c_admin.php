@@ -14,9 +14,9 @@ class C_admin extends CI_Controller {
 
     //untuk menampilkan ke halaman dashboard
     public function index(){
-        $this->load->view('template/admin/v_header');
-        $this->load->view('template/admin/v_admin');
-        $this->load->view('template/admin/v_footer');
+        $this->load->view('template/v_header');
+        $this->load->view('template/admin/v_admin_dashboard');
+        $this->load->view('template/v_footer');
     }
 
     //untuk menampilkan ke halaman produk 

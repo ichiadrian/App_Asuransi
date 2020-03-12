@@ -90,3 +90,5 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  <?php print_r($this->session->userdata);  ?>

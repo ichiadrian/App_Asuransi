@@ -1,9 +1,32 @@
+<?php
+
+  switch ($this->session->userdata['role']) {
+    case 1:
+      $ctrl = "c_admin";
+      $title = "Admin";
+      break;
+    case 2:
+      $ctrl = "c_helpdesk";
+      $title = "Helpdesk";
+      break;
+    case 3:
+      $ctrl = "c_agency";
+      $title = "Agency";
+      break;
+      
+    default:
+      # code...
+      break;
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Asuransi | <?php echo $title; ?> </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -39,6 +62,7 @@
       </li>
     </ul>
     
+    
 
     <!-- Right navbar links -->
    
@@ -62,7 +86,7 @@
           <img src="<?php echo base_url().'assets/dist/img/user2-160x160.jpg'?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><?php echo $this->session->userdata['username'];  ?></a>
         </div>
       </div>
 
@@ -81,7 +105,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url().'c_admin'?>" class="nav-link active">
+                <a href="<?php echo base_url().$ctrl;?>" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
@@ -89,38 +113,66 @@
            
             </ul>
           </li>
-          
-      
+
+          <!-- ADMIN ROLE -->
+          <?php if($this->session->userdata['role'] == 1) {?>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                  Daftar User
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/forms/general.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View User</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add User</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/editors.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Delete User</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <?php }?>
+          <!-- END OF ADMIN ROLE -->
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-users-cog"></i>
               <p>
-                Tables
+                Action
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                <a href="<?php echo base_url().$ctrl;?>/change_password" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                  <p>Change Password</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="<?php echo base_url().$ctrl;?>/logout" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
+                  <p>Log Out</p>
                 </a>
               </li>
             </ul>
           </li>>
+          
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
