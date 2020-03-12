@@ -147,6 +147,78 @@
             </li>
           <?php }?>
           <!-- END OF ADMIN ROLE -->
+
+
+
+          <!-- HELP DESK ROLE -->
+          <?php if($this->session->userdata['role'] == 2) {?>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                  Polis Asuransi
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/forms/general.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Daftar Pengajuan Asuransi Baru</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Daftar Pengajuan Perpanjangan Polis</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/editors.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Daftar Pengajuan Klaim</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <?php }?>
+          <!-- END OF HELP DESK ROLE -->
+
+
+
+          <!-- AGENCY ROLE -->
+          <?php if($this->session->userdata['role'] == 3) {?>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                  Polis Asuransi
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/forms/general.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengajuan Asuransi Baru</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengajuan Perpanjangan Polis</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/editors.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengajuan Klaim</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <?php }?>
+          <!-- END OFAGENCY ROLE -->
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

@@ -85,10 +85,10 @@
           </div>
         </div>
 
+
       </div><!-- /.container-fluid -->
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <?php print_r($this->session->userdata);  ?>

@@ -25,32 +25,46 @@
                 $where = array(
                             'username'=>$username,
                             'password'=>md5($password),
-                            'role'=>'1'
                             );
 
                 //kondisi ke-1 apabila login sebagai admin
-                if($where['role']=='1'){
-                    $cek_login = $this->m_data->cek_login($where,'users')->num_rows();
-                    $data = $this->m_data->cek_login($where,'users')->row();
+                
+                $cek_login = $this->m_data->cek_login($where,'users')->num_rows();
+                $data = $this->m_data->cek_login($where,'users')->row();
                     
-                    if($cek_login > 0){
-                        $data_session = array(
-                                            'iduser'=> $data->iduser,
-                                            'username'=>$data->username,
-                                            'role'=>$data->role
-                                            );
+                if($cek_login > 0){
 
-                        $this->session->set_userdata($data_session);
-                        redirect(base_url().'c_admin');
-                    }else{
-                        redirect(base_url().'c_login?alert=gagal');
+                    $data_session = array(
+                        'iduser'=> $data->iduser,
+                        'username'=>$data->username,
+                        'role'=>$data->role
+                    );
+
+                    $this->session->set_userdata($data_session);
+                    
+                    switch ($data->role) {
+                        case 1:
+                            redirect(base_url().'c_admin');
+                            break;
+                        case 2:
+                            redirect(base_url().'c_helpdesk');
+                            break;
+                        case 3:
+                            redirect(base_url().'c_agency');
+                            break;
+                        default:
+                            # code...
+                            break;
                     }
-                // kondisi ke-2 apabila login sebagai petugas
+
+                }else{
+                    redirect(base_url().'c_login?alert=gagal');
                 }
-        }else{
+                
+            }else{
 
             $this->load->view('v_login');
+            }
         }
     }
-}
     
