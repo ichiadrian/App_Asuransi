@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>General Form</h1>
+            <!-- <h1>General Form</h1> -->
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -20,7 +20,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
           <!-- left column -->
           <div class="col-md-6">
             <!-- general form elements -->
@@ -30,20 +30,20 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form action="<?php echo base_url().'c_agency/aksi_tambah_pengajuan' ?>" role="form" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Pemegang Polis</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="nama_pemegang_polis">Nama Pemegang Polis</label>
+                    <input type="text" class="form-control" id="nama_pemegang_polis" name="nama_pemegang_polis" placeholder="Masukkan nama">
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputFile">Form Permohonan Baru</label>
+                    <label for="form_permohonan_baru">Form Permohonan Baru</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="form_permohonan_baru" name="form_permohonan_baru" accept="image/*">
+                        <label class="custom-file-label" for="form_permohonan_baru">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -52,11 +52,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputFile">Identitas (E-KTP/SIM/PASSPORT)</label>
+                    <label for="form_identitas">Identitas (E-KTP/SIM/PASSPORT)</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="form_identitas" name="form_identitas" accept="image/*">
+                        <label class="custom-file-label" for="form_identitas">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -65,11 +65,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputFile">Bukti Transfer</label>
+                    <label for="form_bukti_transfer">Bukti Transfer</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="form_bukti_transfer" name="form_bukti_transfer" accept="image/*">
+                        <label class="custom-file-label" for="form_bukti_transfer">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -78,11 +78,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputFile">Buku Tabungan</label>
+                    <label for="form_buku_tabungan">Buku Tabungan</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="form_buku_tabungan" name="form_buku_tabungan" accept="image/*">
+                        <label class="custom-file-label" for="form_buku_tabungan">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
