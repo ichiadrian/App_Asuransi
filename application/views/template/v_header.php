@@ -198,19 +198,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
+                  <a href="<?php echo base_url().'c_agency/pengajuan_baru/'?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pengajuan Asuransi Baru</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="<?php echo base_url().'c_agency/pengajuan_perpanjangan/'?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pengajuan Perpanjangan Polis</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/forms/editors.html" class="nav-link">
+                <a href="<?php echo base_url().'c_agency/pengajuan_klaim/'?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pengajuan Klaim</p>
                   </a>

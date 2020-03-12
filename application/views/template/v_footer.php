@@ -24,6 +24,9 @@
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
+<script src="<?php echo base_url().'assets/plugins/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js'?>"></script>
+
 <!-- ChartJS -->
 <script src="<?php echo base_url().'assets/plugins/chart.js/Chart.min.js'?>"></script>
 <!-- Sparkline -->
@@ -48,5 +51,10 @@
 <script src="<?php echo base_url().'assets/dist/js/pages/dashboard.js'?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url().'assets/dist/js/demo.js'?>"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script>
 </body>
 </html>
