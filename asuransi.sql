@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2020 at 09:15 AM
+-- Generation Time: Mar 13, 2020 at 05:35 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -25,34 +25,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asuransi`
+-- Table structure for table `klaim_polis`
 --
 
-CREATE TABLE `asuransi` (
-  `idasuransi` int(11) UNSIGNED NOT NULL,
-  `nama_pemegang_polis` varchar(50) NOT NULL,
-  `form_permohonan` varchar(70) NOT NULL,
-  `form_identitas` varchar(70) NOT NULL,
-  `form_bukti_transfer` varchar(70) NOT NULL,
-  `form_buku_tabungan` varchar(70) NOT NULL,
-  `status` int(2) NOT NULL,
-  `keterangan` text NOT NULL,
-  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tgl_perubahan_status` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `penginput` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pengajuan_klaim`
---
-
-CREATE TABLE `pengajuan_klaim` (
+CREATE TABLE `klaim_polis` (
   `idklaim` int(11) NOT NULL,
-  `nama_pemegang_polis` varchar(50) NOT NULL,
-  `form_pengajuan_klaim` varchar(70) NOT NULL,
-  `form_identitas` varchar(70) NOT NULL,
+  `pemegang_polis` varchar(50) NOT NULL,
+  `pengajuan_klaim` varchar(70) NOT NULL,
+  `identitas` varchar(70) NOT NULL,
   `form_polis` varchar(70) NOT NULL,
   `status` int(2) NOT NULL,
   `keterangan` text NOT NULL,
@@ -64,14 +44,34 @@ CREATE TABLE `pengajuan_klaim` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pengajuan_baru`
+--
+
+CREATE TABLE `pengajuan_baru` (
+  `idasuransi` int(11) UNSIGNED NOT NULL,
+  `pemegang_polis` varchar(50) NOT NULL,
+  `form_permohonan` varchar(70) NOT NULL,
+  `identitas` varchar(70) NOT NULL,
+  `bukti_transfer` varchar(70) NOT NULL,
+  `buku_tabungan` varchar(70) NOT NULL,
+  `status` int(2) NOT NULL,
+  `keterangan` text NOT NULL,
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tgl_perubahan_status` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `penginput` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `perpanjangan_polis`
 --
 
 CREATE TABLE `perpanjangan_polis` (
   `idperpanjang` int(11) UNSIGNED NOT NULL,
-  `nama_pemegang_polis` varchar(50) NOT NULL,
-  `form_perpanjangan_polis` varchar(70) NOT NULL,
-  `form_identitas` varchar(70) NOT NULL,
+  `pemegang_polis` varchar(50) NOT NULL,
+  `perpanjangan_polis` varchar(70) NOT NULL,
+  `identitas` varchar(70) NOT NULL,
   `status` int(2) NOT NULL,
   `keterangan` text NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -146,16 +146,16 @@ INSERT INTO `user_role` (`idrole`, `rolename`) VALUES
 --
 
 --
--- Indexes for table `asuransi`
+-- Indexes for table `klaim_polis`
 --
-ALTER TABLE `asuransi`
-  ADD PRIMARY KEY (`idasuransi`);
+ALTER TABLE `klaim_polis`
+  ADD PRIMARY KEY (`idklaim`);
 
 --
--- Indexes for table `pengajuan_klaim`
+-- Indexes for table `pengajuan_baru`
 --
-ALTER TABLE `pengajuan_klaim`
-  ADD PRIMARY KEY (`idklaim`);
+ALTER TABLE `pengajuan_baru`
+  ADD PRIMARY KEY (`idasuransi`);
 
 --
 -- Indexes for table `perpanjangan_polis`
@@ -186,22 +186,22 @@ ALTER TABLE `user_role`
 --
 
 --
--- AUTO_INCREMENT for table `asuransi`
+-- AUTO_INCREMENT for table `klaim_polis`
 --
-ALTER TABLE `asuransi`
-  MODIFY `idasuransi` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `klaim_polis`
+  MODIFY `idklaim` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pengajuan_klaim`
+-- AUTO_INCREMENT for table `pengajuan_baru`
 --
-ALTER TABLE `pengajuan_klaim`
-  MODIFY `idklaim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `pengajuan_baru`
+  MODIFY `idasuransi` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `perpanjangan_polis`
 --
 ALTER TABLE `perpanjangan_polis`
-  MODIFY `idperpanjang` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idperpanjang` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `status_polis`
