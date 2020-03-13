@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2020 at 08:13 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Generation Time: Mar 13, 2020 at 09:15 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,14 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `asuransi` (
   `idasuransi` int(11) UNSIGNED NOT NULL,
   `nama_pemegang_polis` varchar(50) NOT NULL,
-  `form_pemohonan` varchar(70) NOT NULL,
+  `form_permohonan` varchar(70) NOT NULL,
   `form_identitas` varchar(70) NOT NULL,
   `form_bukti_transfer` varchar(70) NOT NULL,
   `form_buku_tabungan` varchar(70) NOT NULL,
   `status` int(2) NOT NULL,
   `keterangan` text NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tgl_ganti_status` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `tgl_perubahan_status` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `penginput` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -56,7 +57,8 @@ CREATE TABLE `pengajuan_klaim` (
   `status` int(2) NOT NULL,
   `keterangan` text NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tgl_perubahan_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `tgl_perubahan_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `penginput` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -68,11 +70,13 @@ CREATE TABLE `pengajuan_klaim` (
 CREATE TABLE `perpanjangan_polis` (
   `idperpanjang` int(11) UNSIGNED NOT NULL,
   `nama_pemegang_polis` varchar(50) NOT NULL,
+  `form_perpanjangan_polis` varchar(70) NOT NULL,
   `form_identitas` varchar(70) NOT NULL,
   `status` int(2) NOT NULL,
   `keterangan` text NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tgl_perubahan_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `tgl_perubahan_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `penginput` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -185,19 +189,19 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `asuransi`
 --
 ALTER TABLE `asuransi`
-  MODIFY `idasuransi` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idasuransi` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pengajuan_klaim`
 --
 ALTER TABLE `pengajuan_klaim`
-  MODIFY `idklaim` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idklaim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `perpanjangan_polis`
 --
 ALTER TABLE `perpanjangan_polis`
-  MODIFY `idperpanjang` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idperpanjang` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `status_polis`

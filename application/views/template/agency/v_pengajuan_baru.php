@@ -24,7 +24,7 @@
           <!-- left column -->
           <div class="col-md-6">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title">Pengajuan Asuransi Baru</h3>
               </div>
@@ -35,14 +35,14 @@
 
                   <div class="form-group">
                     <label for="nama_pemegang_polis">Nama Pemegang Polis</label>
-                    <input type="text" class="form-control" id="nama_pemegang_polis" name="nama_pemegang_polis" placeholder="Masukkan nama">
+                    <input type="text" class="form-control" id="nama_pemegang_polis" name="nama_pemegang_polis" placeholder="Masukkan nama" value="<?php echo $this->session->userdata('username'); ?>" required>
                   </div>
 
                   <div class="form-group">
                     <label for="form_permohonan_baru">Form Permohonan Baru</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_permohonan_baru" name="form_permohonan_baru" accept="image/*">
+                        <input type="file" class="custom-file-input" id="form_permohonan_baru" name="form_permohonan_baru" accept="image/*" required>
                         <label class="custom-file-label" for="form_permohonan_baru">Pilih file</label>
                       </div>
                       <div class="input-group-append">
@@ -55,7 +55,7 @@
                     <label for="form_identitas">Identitas (E-KTP/SIM/PASSPORT)</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_identitas" name="form_identitas" accept="image/*">
+                        <input type="file" class="custom-file-input" id="form_identitas" name="form_identitas" accept="image/*" required>
                         <label class="custom-file-label" for="form_identitas">Pilih file</label>
                       </div>
                       <div class="input-group-append">
@@ -68,7 +68,7 @@
                     <label for="form_bukti_transfer">Bukti Transfer</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_bukti_transfer" name="form_bukti_transfer" accept="image/*">
+                        <input type="file" class="custom-file-input" id="form_bukti_transfer" name="form_bukti_transfer" accept="image/*" required>
                         <label class="custom-file-label" for="form_bukti_transfer">Pilih file</label>
                       </div>
                       <div class="input-group-append">
@@ -81,7 +81,7 @@
                     <label for="form_buku_tabungan">Buku Tabungan</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_buku_tabungan" name="form_buku_tabungan" accept="image/*">
+                        <input type="file" class="custom-file-input" id="form_buku_tabungan" name="form_buku_tabungan" accept="image/*" required>
                         <label class="custom-file-label" for="form_buku_tabungan">Pilih file</label>
                       </div>
                       <div class="input-group-append">

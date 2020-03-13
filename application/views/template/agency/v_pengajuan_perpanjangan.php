@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>General Form</h1>
+            <!-- <h1>General Form</h1> -->
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -20,30 +20,30 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
           <!-- left column -->
           <div class="col-md-6">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title">Perpanjangan Asuransi</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form action="<?php echo base_url().'c_agency/aksi_tambah_perpanjangan'; ?>" role="form" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Pemegang Polis</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="nama_pemegang_polis">Nama Pemegang Polis</label>
+                    <input type="text" class="form-control" id="nama_pemegang_polis" name="nama_pemegang_polis" placeholder="Masukkan Nama" value="<?php echo $this->session->userdata('username'); ?>" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputFile">Form Perpanjangan Polis</label>
+                    <label for="form_perpanjangan_polis">Form Perpanjangan Polis</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="form_perpanjangan_polis" name="form_perpanjangan_polis" accept="image/*" required>
+                        <label class="custom-file-label" for="form_perpanjangan_polis">Choose file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -52,11 +52,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputFile">Identitas (E-KTP/SIM/PASSPORT)</label>
+                    <label for="form_identitas">Identitas (E-KTP/SIM/PASSPORT)</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="form_identitas" name="form_identitas" accept="image/*" required>
+                        <label class="custom-file-label" for="form_identitas">Choose file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
