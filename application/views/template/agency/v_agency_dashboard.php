@@ -34,7 +34,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3><?php echo $asuransi->Pending; ?></h3>
+                <h3><?php echo $pengajuan_baru->Pending; ?></h3>
 
                 <p>Pengajuan Asuransi Baru: Pending</p>
               </div>
@@ -49,7 +49,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php echo $asuransi->Approved; ?></h3>
+                <h3><?php echo $pengajuan_baru->Approved; ?></h3>
 
                 <p>Pengajuan Asuransi Baru: Approved</p>
               </div>
@@ -64,7 +64,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php echo $asuransi->Rejected; ?></h3>
+                <h3><?php echo $pengajuan_baru->Rejected; ?></h3>
 
                 <p>Pengajuan Asuransi Baru: Rejected</p>
               </div>
@@ -193,7 +193,7 @@
             <p>Anda telah login sebagai <b><?php echo $this->session->userdata('username'); ?></b> [admin].</p>
         </div>
       </div>
-
+      
     </section>
     <!-- /.content -->
   </div>

@@ -34,16 +34,16 @@
                 <div class="card-body">
 
                   <div class="form-group">
-                    <label for="nama_pemegang_polis">Nama Pemegang Polis</label>
-                    <input type="text" class="form-control" id="nama_pemegang_polis" name="nama_pemegang_polis" placeholder="Masukkan Nama" value="<?php echo $this->session->userdata('username'); ?>" required>
+                    <label for="pemegang_polis">Nama Pemegang Polis</label>
+                    <input type="text" class="form-control" id="pemegang_polis" name="pemegang_polis" placeholder="Masukkan Nama" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="form_pengajuan_klaim">Form Pengajuan klaim</label>
+                    <label for="pengajuan_klaim">Form Pengajuan klaim</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_pengajuan_klaim" name="form_pengajuan_klaim" accept="image/*" required>
-                        <label class="custom-file-label" for="form_pengajuan_klaim">Choose file</label>
+                        <input type="file" class="custom-file-input" id="pengajuan_klaim" name="pengajuan_klaim" accept="image/*" required>
+                        <label class="custom-file-label" for="pengajuan_klaim">Choose file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -52,11 +52,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="form_identitas">Identitas (E-KTP/SIM/PASSPORT)</label>
+                    <label for="identitas">Identitas (E-KTP/SIM/PASSPORT)</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_identitas" name="form_identitas" accept="image/*" required> 
-                        <label class="custom-file-label" for="form_identitas">Choose file</label>
+                        <input type="file" class="custom-file-input" id="identitas" name="identitas" accept="image/*" required> 
+                        <label class="custom-file-label" for="identitas">Choose file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>

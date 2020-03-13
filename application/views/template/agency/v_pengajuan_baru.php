@@ -34,16 +34,16 @@
                 <div class="card-body">
 
                   <div class="form-group">
-                    <label for="nama_pemegang_polis">Nama Pemegang Polis</label>
-                    <input type="text" class="form-control" id="nama_pemegang_polis" name="nama_pemegang_polis" placeholder="Masukkan nama" value="<?php echo $this->session->userdata('username'); ?>" required>
+                    <label for="pemegang_polis">Nama Pemegang Polis</label>
+                    <input type="text" class="form-control" id="pemegang_polis" name="pemegang_polis" placeholder="Masukkan nama" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="form_permohonan_baru">Form Permohonan Baru</label>
+                    <label for="form_permohonan">Form Permohonan Baru</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_permohonan_baru" name="form_permohonan_baru" accept="image/*" required>
-                        <label class="custom-file-label" for="form_permohonan_baru">Pilih file</label>
+                        <input type="file" class="custom-file-input" id="form_permohonan" name="form_permohonan" accept="image/*" required>
+                        <label class="custom-file-label" for="form_permohonan">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -52,11 +52,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="form_identitas">Identitas (E-KTP/SIM/PASSPORT)</label>
+                    <label for="identitas">Identitas (E-KTP/SIM/PASSPORT)</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_identitas" name="form_identitas" accept="image/*" required>
-                        <label class="custom-file-label" for="form_identitas">Pilih file</label>
+                        <input type="file" class="custom-file-input" id="identitas" name="identitas" accept="image/*" required>
+                        <label class="custom-file-label" for="identitas">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -65,11 +65,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="form_bukti_transfer">Bukti Transfer</label>
+                    <label for="bukti_transfer">Bukti Transfer</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_bukti_transfer" name="form_bukti_transfer" accept="image/*" required>
-                        <label class="custom-file-label" for="form_bukti_transfer">Pilih file</label>
+                        <input type="file" class="custom-file-input" id="bukti_transfer" name="bukti_transfer" accept="image/*" required>
+                        <label class="custom-file-label" for="bukti_transfer">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
@@ -78,11 +78,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="form_buku_tabungan">Buku Tabungan</label>
+                    <label for="buku_tabungan">Buku Tabungan</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="form_buku_tabungan" name="form_buku_tabungan" accept="image/*" required>
-                        <label class="custom-file-label" for="form_buku_tabungan">Pilih file</label>
+                        <input type="file" class="custom-file-input" id="buku_tabungan" name="buku_tabungan" accept="image/*" required>
+                        <label class="custom-file-label" for="buku_tabungan">Pilih file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>

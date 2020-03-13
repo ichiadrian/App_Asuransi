@@ -25,6 +25,103 @@ class C_helpdesk extends CI_Controller {
         $this->load->view('template/v_footer');
     }
 
+    public function daftar_pengajuan_baru(){
+
+        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput FROM pengajuan_baru
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 1";
+        $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result();
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_daftar_pengajuan_baru', $data);
+        $this->load->view('template/v_footer');
+        
+    }
+
+    public function pengajuan_baru($id){
+
+        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan FROM pengajuan_baru
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idasuransi = $id";
+        $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_pengajuan_baru', $data);
+        $this->load->view('template/v_footer');
+
+    }
+    
+    public function daftar_perpanjangan_polis(){
+
+        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput FROM perpanjangan_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 1";
+        $data['perpanjangan'] = $this->m_data->raw_query($query)->result();
+        
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_daftar_perpanjangan_polis', $data);
+        $this->load->view('template/v_footer');
+        
+    }
+    
+    public function perpanjangan_polis($id){
+
+        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas FROM perpanjangan_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idperpanjang = $id";
+        $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_perpanjangan_polis', $data);
+        $this->load->view('template/v_footer');
+
+    }
+
+    public function daftar_klaim_polis(){
+
+        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput FROM klaim_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 1";
+        $data['klaim'] = $this->m_data->raw_query($query)->result();
+        
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_daftar_klaim_polis', $data);
+        $this->load->view('template/v_footer');
+        
+    }
+    
+    public function klaim_polis($id){
+
+        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis FROM klaim_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idklaim = $id";
+        $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_klaim_polis', $data);
+        $this->load->view('template/v_footer');
+
+    }
+
+
+
+    // ======================================================== AKSI
+
+    function aksi_ubah_status(){
+
+        $id = $this->input->post('id');
+        $idname = $this->input->post('idname');
+        $status = $this->input->post('status');
+        $keterangan = $this->input->post('keterangan');
+        $table_flag = $this->input->post('table_flag');
+        $redirect = $this->input->post('redirect');
+
+        $where = array(
+                        $idname=>$id
+                        );
+        $data = array(
+                        'status'=>$status,
+                        'keterangan'=>$keterangan,
+                        );
+                        
+        $this->m_data->update_data($where,$data,$table_flag);
+        redirect(site_url().'c_helpdesk/'.$redirect);
+    }
+
     function logout(){
         $this->session->sess_destroy();
         redirect(site_url().'c_login?alert=logout');

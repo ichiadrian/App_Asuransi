@@ -21,13 +21,13 @@ class C_agency extends CI_Controller {
                     COUNT(IF(status = 1, 1, NULL)) AS Pending,
                     COUNT(IF(status = 2, 1, NULL)) AS Approved,
                     COUNT(IF(status = 3, 1, NULL)) AS Rejected
-                FROM asuransi WHERE penginput = '".$username."'";
-        $data['asuransi'] = $this->m_data->raw_query($query)->result()[0];
+                FROM pengajuan_baru WHERE penginput = '".$username."'";
+        $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
 
-        $query = str_replace("asuransi", "perpanjangan_polis", $query);
+        $query = str_replace("pengajuan_baru", "perpanjangan_polis", $query);
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
 
-        $query = str_replace("perpanjangan_polis", "pengajuan_klaim", $query);
+        $query = str_replace("perpanjangan_polis", "klaim_polis", $query);
         $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
         // ============================ DATA DASHBOARD
 
@@ -72,23 +72,23 @@ class C_agency extends CI_Controller {
     // -------------------------------- PENGAJUAN BARU
     function aksi_tambah_pengajuan(){
 
-        $nama_table = "asuransi";
+        $nama_table = "pengajuan_baru";
         $maxid = $this->max_id($nama_table)+1;
 
-        $nama_pemegang_polis = $this->input->post('nama_pemegang_polis');
-        $nama_folder = strtolower(str_replace(" ", "_", $nama_pemegang_polis));
+        $pemegang_polis = $this->input->post('pemegang_polis');
+        $nama_folder = strtolower(str_replace(" ", "_", $pemegang_polis));
 
-        $form_permohonan_baru = $this->aksi_upload('form_permohonan_baru', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
-        $form_identitas = $this->aksi_upload('form_identitas', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
-        $form_bukti_transfer = $this->aksi_upload('form_bukti_transfer', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
-        $form_buku_tabungan = $this->aksi_upload('form_buku_tabungan', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $form_permohonan = $this->aksi_upload('form_permohonan', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $identitas = $this->aksi_upload('identitas', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $bukti_transfer = $this->aksi_upload('bukti_transfer', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $buku_tabungan = $this->aksi_upload('buku_tabungan', $maxid.'_pengajuan_baru_'.$nama_folder, $maxid.'_'.$nama_folder);
 
         $data = array(
-            'nama_pemegang_polis'=>$nama_pemegang_polis,
-            'form_permohonan'=>$form_permohonan_baru,
-            'form_identitas'=>$form_identitas,
-            'form_bukti_transfer'=>$form_bukti_transfer,
-            'form_buku_tabungan'=>$form_buku_tabungan,
+            'pemegang_polis'=>$pemegang_polis,
+            'form_permohonan'=>$form_permohonan,
+            'identitas'=>$identitas,
+            'bukti_transfer'=>$bukti_transfer,
+            'buku_tabungan'=>$buku_tabungan,
             'status'=>1,
             'keterangan'=>'',
             'tgl_input'=>date('Y-m-d H:i:s'),
@@ -97,7 +97,7 @@ class C_agency extends CI_Controller {
         );
 
         // tambahin alert yan gagal atau suksesnya
-        $this->m_data->insert_data($data,'perpanjangan_polis');
+        $this->m_data->insert_data($data,'pengajuan_baru');
         $success = $this->m_data->db->affected_rows() > 0 ? true : false;
 
         if($success == 1)
@@ -119,16 +119,16 @@ class C_agency extends CI_Controller {
         $nama_table = "perpanjangan_polis";
         $maxid = $this->max_id($nama_table)+1;
 
-        $nama_pemegang_polis = $this->input->post('nama_pemegang_polis');
-        $nama_folder = strtolower(str_replace(" ", "_", $nama_pemegang_polis));
+        $pemegang_polis = $this->input->post('pemegang_polis');
+        $nama_folder = strtolower(str_replace(" ", "_", $pemegang_polis));
         
-        $form_perpanjangan_polis = $this->aksi_upload('form_perpanjangan_polis', $maxid.'_perpanjangan_'.$nama_folder, $maxid.'_'.$nama_folder);
-        $form_identitas = $this->aksi_upload('form_identitas', $maxid.'_perpanjangan_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $perpanjangan_polis = $this->aksi_upload('perpanjangan_polis', $maxid.'_perpanjangan_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $identitas = $this->aksi_upload('identitas', $maxid.'_perpanjangan_'.$nama_folder, $maxid.'_'.$nama_folder);
 
         $data = array(
-            'nama_pemegang_polis'=>$nama_pemegang_polis,
-            'form_perpanjangan_polis'=>$form_perpanjangan_polis,
-            'form_identitas'=>$form_identitas,
+            'pemegang_polis'=>$pemegang_polis,
+            'perpanjangan_polis'=>$perpanjangan_polis,
+            'identitas'=>$identitas,
             'status'=>1,
             'keterangan'=>'',
             'tgl_input'=>date('Y-m-d H:i:s'),
@@ -158,20 +158,20 @@ class C_agency extends CI_Controller {
     // -------------------------------- PENGAJUAN KLAIM
     function aksi_tambah_klaim(){
 
-        $nama_table = "pengajuan_klaim";
+        $nama_table = "klaim_polis";
         $maxid = $this->max_id($nama_table)+1;
 
-        $nama_pemegang_polis = $this->input->post('nama_pemegang_polis');
-        $nama_folder = strtolower(str_replace(" ", "_", $nama_pemegang_polis));
+        $pemegang_polis = $this->input->post('pemegang_polis');
+        $nama_folder = strtolower(str_replace(" ", "_", $pemegang_polis));
 
-        $form_pengajuan_klaim = $this->aksi_upload('form_pengajuan_klaim', $maxid.'_klaim_'.$nama_folder, $maxid.'_'.$nama_folder);
-        $form_identitas = $this->aksi_upload('form_identitas', $maxid.'_klaim_'.$nama_folder, $maxid.'_'.$nama_folder);
-        $form_polis = $this->aksi_upload('form_polis', $maxid.'_klaim_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $pengajuan_klaim = $this->aksi_upload('pengajuan_klaim', $maxid.'_klaim_polis_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $identitas = $this->aksi_upload('identitas', $maxid.'_klaim_polis_'.$nama_folder, $maxid.'_'.$nama_folder);
+        $form_polis = $this->aksi_upload('form_polis', $maxid.'_klaim_polis_'.$nama_folder, $maxid.'_'.$nama_folder);
 
         $data = array(
-            'nama_pemegang_polis'=>$nama_pemegang_polis,
-            'form_pengajuan_klaim'=>$form_pengajuan_klaim,
-            'form_identitas'=>$form_identitas,
+            'pemegang_polis'=>$pemegang_polis,
+            'pengajuan_klaim'=>$pengajuan_klaim,
+            'identitas'=>$identitas,
             'form_polis'=>$form_polis,
             'status'=>1,
             'keterangan'=>'',
@@ -181,7 +181,7 @@ class C_agency extends CI_Controller {
         );
 
         // tambahin alert gagal atau suksesnysa
-        $this->m_data->insert_data($data,'perpanjangan_polis');
+        $this->m_data->insert_data($data,'klaim_polis');
         $success = $this->m_data->db->affected_rows() > 0 ? true : false;
 
         if($success == 1)
