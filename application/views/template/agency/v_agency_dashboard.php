@@ -188,12 +188,12 @@
       <div class="jumbotron text-center">
         <div class="col-sm-8 mx-auto">
             <h1>Selamat datang!</h1>
-            <p>Ini merupakan contoh sistem informasi perpustakaan hasil dari tutorial
-                <b>ebook tutorial codeigniter lengkap dengan studi kasus membuat sistem informasi
-                    perpustakaan</b>.</p>
+            <p>Ini merupakan sistem management asuransi
+                <b>Aplikasi ini di gunakan untuk management polis asuransi </b>.</p>
             <p>Anda telah login sebagai <b><?php echo $this->session->userdata('username'); ?></b> [admin].</p>
         </div>
-    </div>
+      </div>
+
     </section>
     <!-- /.content -->
   </div>

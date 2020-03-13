@@ -143,7 +143,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+          <a href="<?php echo base_url().$ctrl;?>" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -205,19 +205,19 @@
                 <li class="nav-item">
                   <a href="pages/forms/general.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Daftar Pengajuan Asuransi Baru</p>
+                    <p>Pengajuan Polis Baru</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/forms/advanced.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Daftar Pengajuan Perpanjangan Polis</p>
+                    <p>Perpanjangan Polis</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/forms/editors.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Daftar Pengajuan Klaim</p>
+                    <p>Pengajuan Klaim</p>
                   </a>
                 </li>
               </ul>
@@ -241,19 +241,19 @@
                 <li class="nav-item">
                   <a href="<?php echo base_url().$ctrl.'/pengajuan_baru'?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Pengajuan Asuransi Baru</p>
+                    <p>Daftarv Pengajuan Polis</p>
                   </a>
                 </li>
                 <li class="nav-item">
                 <a href="<?php echo base_url().$ctrl.'/pengajuan_perpanjangan'?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Pengajuan Perpanjangan Polis</p>
+                    <p>Daftar Perpanjangan Polis</p>
                   </a>
                 </li>
                 <li class="nav-item">
                 <a href="<?php echo base_url().$ctrl.'/pengajuan_klaim'?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Pengajuan Klaim</p>
+                    <p>Daftar Pengajuan Klaim</p>
                   </a>
                 </li>
               </ul>

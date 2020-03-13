@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard Jumalah Pemasukan Data</h1>
+            <h1 class="m-0 text-dark">Dashboard Jumlah Data Masuk</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -43,7 +43,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>53<sup style="font-size: 20px"></sup></h3>
 
                 <p>Pengajuan Perpanjangan Polis</p>
               </div>
@@ -91,12 +91,12 @@
       <div class="jumbotron text-center">
         <div class="col-sm-8 mx-auto">
             <h1>Selamat datang!</h1>
-            <p>Ini merupakan contoh sistem informasi perpustakaan hasil dari tutorial
-                <b>ebook tutorial codeigniter lengkap dengan studi kasus membuat sistem informasi
-                    perpustakaan</b>.</p>
+            <p>Ini merupakan sistem management asuransi
+                <b>Aplikasi ini di gunakan untuk management polis asuransi </b>.</p>
             <p>Anda telah login sebagai <b><?php echo $this->session->userdata('username'); ?></b> [admin].</p>
         </div>
-    </div>
+      </div>
+
     </section>
     <!-- /.content -->
   </div>
