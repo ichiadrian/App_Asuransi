@@ -13,7 +13,7 @@
         <br /><br /><br /><br />
         <!-- <h3 class="font-weight-normal text-center text-white">SISTEM INFORMASI</h3> -->
         <h2 class="font-weight-normal text-center text-white mb-5"><b>Management</b></h2>
-        <div class="col-md-4 offset-md-4">
+        <div class="col-sm-4 offset-sm-4">
             <div class="card">
                 <div class="card-body">
                     <!-- menampilkan pesan saat akan login di buat di  halaman yg akan di tampilkan saja -->

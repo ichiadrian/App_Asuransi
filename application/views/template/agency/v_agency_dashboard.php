@@ -32,14 +32,14 @@
         <div class="row d-flex justify-content-center">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-warning">
               <div class="inner">
                 <h3><?php echo $pengajuan_baru->Pending; ?></h3>
 
-                <p>Pengajuan Asuransi Baru: Pending</p>
+                <p>Status: PENDING</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-document"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -51,7 +51,7 @@
               <div class="inner">
                 <h3><?php echo $pengajuan_baru->Approved; ?></h3>
 
-                <p>Pengajuan Asuransi Baru: Approved</p>
+                <p>Status: APPROVED</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -62,14 +62,14 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-danger">
               <div class="inner">
                 <h3><?php echo $pengajuan_baru->Rejected; ?></h3>
 
-                <p>Pengajuan Asuransi Baru: Rejected</p>
+                <p>Status: REJECTED</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-person"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -85,14 +85,14 @@
         <div class="row d-flex justify-content-center">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-warning">
               <div class="inner">
                 <h3><?php echo $perpanjangan->Pending; ?></h3>
 
-                <p>Perpanjangan Polis: Pending</p>
+                <p>Status: PENDING</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-document"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -104,7 +104,7 @@
               <div class="inner">
                 <h3><?php echo $perpanjangan->Approved; ?></h3>
 
-                <p>Perpanjangan Polis: Approved</p>
+                <p>Status: APPROVED</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -115,14 +115,14 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-danger">
               <div class="inner">
                 <h3><?php echo $perpanjangan->Rejected; ?></h3>
 
-                <p>Perpanjangan Polis: Rejected</p>
+                <p>Status: REJECTED</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-person"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -137,14 +137,14 @@
         <div class="row d-flex justify-content-center">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-warning">
               <div class="inner">
                 <h3><?php echo $klaim->Pending; ?></h3>
 
-                <p>Pengajuan Klaim: Pending</p>
+                <p>Status: PENDING</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-document"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -156,7 +156,7 @@
               <div class="inner">
                 <h3><?php echo $klaim->Approved; ?></h3>
 
-                <p>Pengajuan Klaim: Approved</p>
+                <p>Status: APPROVED</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -167,14 +167,14 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-danger">
               <div class="inner">
                 <h3><?php echo $klaim->Rejected; ?></h3>
 
-                <p>Pengajuan Klaim: Rejected</p>
+                <p>Status: REJECTED</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-person"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -188,7 +188,7 @@
       <div class="jumbotron text-center">
         <div class="col-sm-8 mx-auto">
             <h1>Selamat datang!</h1>
-            <p>Ini merupakan sistem management asuransi
+            <p>Ini merupakan sistem management [Asuransi]
                 <b>Aplikasi ini di gunakan untuk management polis asuransi </b>.</p>
             <p>Anda telah login sebagai <b><?php echo $this->session->userdata('username'); ?></b> [admin].</p>
         </div>
