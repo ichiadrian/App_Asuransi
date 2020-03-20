@@ -30,53 +30,56 @@
       </div>
 
       <!-- ASURANSI BARU -->
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3><?php echo $pengajuan_baru->Pending; ?></h3>
+      <form action="<?php echo base_url() . 'c_helpdesk/daftar_pengajuan_baru' ?>" method="POST">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $pengajuan_baru->Pending; ?></h3>
 
-              <p>Asuransi Baru: Pending</p>
+                <p>Asuransi Baru: Pending</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-document"></i>
+              </div>
+
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="1">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-document"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3><?php echo $pengajuan_baru->Approved; ?></h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php echo $pengajuan_baru->Approved; ?></h3>
 
-              <p>Asuransi Baru: Approved</p>
+                <p>Asuransi Baru: Approved</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="2">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3><?php echo $pengajuan_baru->Rejected; ?></h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $pengajuan_baru->Rejected; ?></h3>
 
-              <p>Asuransi Baru: Rejected</p>
+                <p>Asuransi Baru: Rejected</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-document"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="3">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-document"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
 
-      </div>
+        </div>
+      </form>
       <!-- END OF ASURANSI BARU -->
 
       <div class="row">
@@ -87,53 +90,55 @@
 
 
       <!-- PERPANJANGAN -->
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3><?php echo $perpanjangan->Pending; ?></h3>
+      <form action="<?php echo base_url() . 'c_helpdesk/daftar_perpanjangan_polis' ?>" method="POST">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $perpanjangan->Pending; ?></h3>
 
-              <p>Perpanjangan Polis: Pending</p>
+                <p>Perpanjangan Polis: Pending</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-document"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="1">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-document"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3><?php echo $perpanjangan->Approved; ?></h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php echo $perpanjangan->Approved; ?></h3>
 
-              <p>Perpanjangan Polis: Approved</p>
+                <p>Perpanjangan Polis: Approved</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="2">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3><?php echo $perpanjangan->Rejected; ?></h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $perpanjangan->Rejected; ?></h3>
 
-              <p>Perpanjangan Polis: Rejected</p>
+                <p>Perpanjangan Polis: Rejected</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-document"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="3">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-document"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
 
-      </div>
+        </div>
+      </form>
       <!-- END OF PERPANJANGAN -->
 
       <div class="row">
@@ -143,53 +148,55 @@
       </div>
 
       <!-- KLAIM -->
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3><?php echo $klaim->Pending; ?></h3>
+      <form action="<?php echo base_url() . 'c_helpdesk/daftar_klaim_polis' ?>" method="POST">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $klaim->Pending; ?></h3>
 
-              <p>Klaim: Pending</p>
+                <p>Klaim: Pending</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-document"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="1">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-document"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3><?php echo $klaim->Approved; ?></h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php echo $klaim->Approved; ?></h3>
 
-              <p>Klaim: Approved</p>
+                <p>Klaim: Approved</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="2">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3><?php echo $klaim->Rejected; ?></h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $klaim->Rejected; ?></h3>
 
-              <p>Klaim: Rejected</p>
+                <p>Klaim: Rejected</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-document"></i>
+              </div>
+              <a href="#" class="small-box-footer"><button type="submit" class="btn btn-secondary" name="status" value="3">More Info <i class="fas fa-arrow-circle-right"></i></button></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-document"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
 
-      </div>
+        </div>
+      </form>
       <!-- END OF KLAIM -->
 
 

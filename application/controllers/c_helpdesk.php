@@ -43,9 +43,15 @@ class C_helpdesk extends CI_Controller {
 
     public function daftar_pengajuan_baru(){
 
+        $status = $this->input->post('status');
+        if($status == "") $status = 1;
+
         $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput FROM pengajuan_baru
-                    INNER JOIN status_polis ON status = idstatus WHERE status = 1";
+                    INNER JOIN status_polis ON status = idstatus WHERE status = $status";
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result();
+        $data['param'] = array(
+            'status' => $status
+        );
 
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_daftar_pengajuan_baru', $data);
@@ -67,9 +73,15 @@ class C_helpdesk extends CI_Controller {
     
     public function daftar_perpanjangan_polis(){
 
+        $status = $this->input->post('status');
+        if($status == "") $status = 1;
+
         $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput FROM perpanjangan_polis
-                    INNER JOIN status_polis ON status = idstatus WHERE status = 1";
+                    INNER JOIN status_polis ON status = idstatus WHERE status = $status";
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result();
+        $data['param'] = array(
+            'status' => $status
+        );
         
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_daftar_perpanjangan_polis', $data);
@@ -91,9 +103,15 @@ class C_helpdesk extends CI_Controller {
 
     public function daftar_klaim_polis(){
 
+        $status = $this->input->post('status');
+        if($status == "") $status = 1;
+
         $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput FROM klaim_polis
-                    INNER JOIN status_polis ON status = idstatus WHERE status = 1";
+                    INNER JOIN status_polis ON status = idstatus WHERE status = $status";
         $data['klaim'] = $this->m_data->raw_query($query)->result();
+        $data['param'] = array(
+            'status' => $status
+        );
         
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_daftar_klaim_polis', $data);
