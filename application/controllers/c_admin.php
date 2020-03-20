@@ -128,31 +128,6 @@ class C_admin extends CI_Controller {
         }
     }
 
-    // melakukan aksi ganti password user
-    function ganti_password_aksi(){
-        $Pbaru = $this->input->post('password_baru');
-        $Pulang = $this->input->post('password_ulang');
-
-        $this->form_validation->set_rules('password_baru','Password Baru','required|matches[password_ulang]');
-        $this->form_validation->set_rules('password_ulang','Ulangi Password', 'required');
-
-        if($this->form_validation->run() != false ){
-            $id = $this->session->userdata('id');
-            $where = array(
-                        'id'=>$id
-                        );
-            $data = array(
-                        'password'=>md5($Pbaru)
-                        );
-            $this->m_data->update_data($where,$data,'admin');
-            redirect(site_url().'c_admin/ganti_password?alert=sukses');
-        }else{
-            $this->load->view('admin/v_header');
-            $this->load->view('admin/v_ganti_password');
-            $this->load->view('admin/v_footer');    
-        }
-    }
-
     // ----------------------------- CRUD Produk
     // Tambah Produk (INSERT)
     function produk_tambah_aksi(){
@@ -332,23 +307,31 @@ class C_admin extends CI_Controller {
             // mengalihkan halaman ke halaman data petugas
         redirect(site_url().'c_admin/petugas');
     }
-    // //anggota
-    // function anggota(){
-    //     //mengambil data dari database
-    //     $data['data_anggota']= $this->m_data->get_data('anggota')->result();
-    //     $this->load->view('admin/v_header');
-    //     $this->load->view('admin/v_anggota',$data);
-    //     $this->load->view('admin/v_footer');
-    // }
-    // function anggota_kartu($id){
-    //     $where = array('id'=>$id);
-    //     // mengambil data dari database sesuai id
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Ganti Password +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    function ganti_password_aksi(){
+        $Pbaru = $this->input->post('password_baru');
+        $Pulang = $this->input->post('password_ulang');
 
-    //     $data['data_anggota']=$this->m_data->edit_data($where,'anggota')->result();
+        $this->form_validation->set_rules('password_baru','Password Baru','required|matches[password_ulang]');
+        $this->form_validation->set_rules('password_ulang','Ulangi Password', 'required');
 
-    //     $this->load->view('admin/v_anggota_kartu',$data);
-
-    // }
+        if($this->form_validation->run() != false ){
+            $id = $this->session->userdata('iduser');
+            $where = array(
+                        'iduser'=>$id
+                        );
+            $data = array(
+                        'password'=>md5($Pbaru)
+                        );
+            $this->m_data->update_data($where,$data,'users');
+            redirect(site_url().'c_admin/change_password?alert=sukses');
+        }else{
+            $this->load->view('template/v_header');
+            $this->load->view('template/v_change_password');
+            $this->load->view('template/v_footer');    
+        }
+    }
+   
 
     // ===================================================== END OF AKSI ===================================================== \\
     

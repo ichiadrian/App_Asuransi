@@ -160,5 +160,31 @@ class C_helpdesk extends CI_Controller {
         $this->session->sess_destroy();
         redirect(site_url().'c_login?alert=logout');
     }
+
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Ganti Password +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    function ganti_password_aksi(){
+        $Pbaru = $this->input->post('password_baru');
+        $Pulang = $this->input->post('password_ulang');
+    
+        $this->form_validation->set_rules('password_baru','Password Baru','required|matches[password_ulang]');
+        $this->form_validation->set_rules('password_ulang','Ulangi Password', 'required');
+    
+        if($this->form_validation->run() != false ){
+            $id = $this->session->userdata('iduser');
+            $where = array(
+                       'iduser'=>$id
+                        );
+            $data = array(
+                        'password'=>md5($Pbaru)
+                        );
+            $this->m_data->update_data($where,$data,'users');
+                redirect(site_url().'c_helpdesk/change_password?alert=sukses');
+        }else{
+            $this->load->view('template/v_header');
+            $this->load->view('template/v_change_password');
+            $this->load->view('template/v_footer');    
+        }
+    }
     
 }
