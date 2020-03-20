@@ -14,8 +14,24 @@ class C_helpdesk extends CI_Controller {
 
     //untuk menampilkan ke halaman dashboard
     public function index(){
+
+        // ============================ DATA DASHBOARD
+        $query = "SELECT 
+                    COUNT(IF(status = 1, 1, NULL)) AS Pending,
+                    COUNT(IF(status = 2, 1, NULL)) AS Approved,
+                    COUNT(IF(status = 3, 1, NULL)) AS Rejected
+                FROM pengajuan_baru";
+        $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
+
+        $query = str_replace("pengajuan_baru", "perpanjangan_polis", $query);
+        $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
+
+        $query = str_replace("perpanjangan_polis", "klaim_polis", $query);
+        $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
+        // ============================ DATA DASHBOARD
+
         $this->load->view('template/v_header');
-        $this->load->view('template/helpdesk/v_helpdesk_dashboard');
+        $this->load->view('template/helpdesk/v_helpdesk_dashboard', $data);
         $this->load->view('template/v_footer');
     }
 
