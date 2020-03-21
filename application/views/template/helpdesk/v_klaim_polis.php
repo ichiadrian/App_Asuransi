@@ -37,21 +37,32 @@
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Form Perpanjangan Polis</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->pengajuan_klaim; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->pengajuan_klaim; ?>" alt="" width="250" height="250">
+                                        <br/><br/>
+                                        
+                                        <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->pengajuan_klaim;?>" download="<?php echo $klaim->pengajuan_klaim; ?>"><i class="fas fa-save"></i> Save</a>
                                     </div>
                                 </div>
 
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Identitas</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->identitas; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->identitas; ?>" alt="" width="250" height="250">
+                                        <br/><br/>
+                                        
+                                        <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->identitas;?>" download="<?php echo $klaim->identitas; ?>"><i class="fas fa-save"></i> Save</a>
+
                                     </div>
                                 </div>
 
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Form Polis</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->form_polis; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->form_polis; ?>" alt="" width="250" height="250">
+                                        <br/><br/>
+                                        
+                                        <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$klaim->idklaim.'_klaim_polis_'.$klaim->pemegang_polis.'/'.$klaim->form_polis;?>" download="<?php echo $klaim->form_polis; ?>"><i class="fas fa-save"></i> Save</a>
+
                                     </div>
                                 </div>
 

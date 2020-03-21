@@ -36,29 +36,44 @@
 
                                 <div class="row my-1">
                                     <div class="col">
-                                        <h3 class="mb-0">Form Permohonan</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->form_permohonan; ?>" alt="" width="200" height="200">
+                                        <h3 class=" mb-0">Form Permohonan</h3> <br>
+                                        <img  src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->form_permohonan; ?>" alt="" width="250" height="250">
+                                        <br/><br/>
+
+                                        <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->form_permohonan;?>" download="<?php echo $pengajuan_baru->form_permohonan; ?>"><i class="fas fa-save"></i> Save</a>
+        
                                     </div>
                                 </div>
 
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Identitas</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->identitas; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->identitas; ?>" alt="" width="250" height="250">
+                                        <br/><br/>       
+                                                                        
+                                         <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->identitas;?>" download="<?php echo $pengajuan_baru->identitas; ?>"><i class="fas fa-save"></i> Save</a>
+
                                     </div>
                                 </div>
 
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Bukti Transfer</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->bukti_transfer; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->bukti_transfer; ?>" alt="" width="250" height="250">
+                                        <br/><br/>       
+                                                                        
+                                         <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->bukti_transfer;?>" download="<?php echo $pengajuan_baru->bukti_transfer; ?>"><i class="fas fa-save"></i> Save</a>
+
                                     </div>
                                 </div>
 
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Buku Tabungan</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->buku_tabungan; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->buku_tabungan; ?>" alt="" width="250" height="250">
+                                        <br/><br/>       
+                                                                        
+                                         <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$pengajuan_baru->idasuransi.'_pengajuan_baru_'.$pengajuan_baru->pemegang_polis.'/'.$pengajuan_baru->buku_tabungan;?>" download="<?php echo $pengajuan_baru->buku_tabungan; ?>"><i class="fas fa-save"></i> Save</a>
                                     </div>
                                 </div>
 

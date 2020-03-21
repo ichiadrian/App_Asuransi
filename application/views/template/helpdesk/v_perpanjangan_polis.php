@@ -37,14 +37,23 @@
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Form Perpanjangan Polis</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$perpanjangan->idperpanjang.'_perpanjangan_'.$perpanjangan->pemegang_polis.'/'.$perpanjangan->perpanjangan_polis; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$perpanjangan->idperpanjang.'_perpanjangan_'.$perpanjangan->pemegang_polis.'/'.$perpanjangan->perpanjangan_polis; ?>" alt="" width="250" height="250">
+                                        <br/><br/>
+
+                                        
+                                        <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$perpanjangan->idperpanjang.'_perpanjangan_'.$perpanjangan->pemegang_polis.'/'.$perpanjangan->perpanjangan_polis;?>" download="<?php echo $perpanjangan->perpanjangan_polis; ?>"><i class="fas fa-save"></i> Save</a>
+
                                     </div>
                                 </div>
 
                                 <div class="row my-1">
                                     <div class="col">
                                         <h3 class="mb-0">Identitas</h3> <br>
-                                        <img src="<?php echo base_url().'gambar/'.$perpanjangan->idperpanjang.'_perpanjangan_'.$perpanjangan->pemegang_polis.'/'.$perpanjangan->identitas; ?>" alt="" width="200" height="200">
+                                        <img src="<?php echo base_url().'gambar/'.$perpanjangan->idperpanjang.'_perpanjangan_'.$perpanjangan->pemegang_polis.'/'.$perpanjangan->identitas; ?>" alt="" width="250" height="250">
+                                        <br/><br/>
+
+                                        
+                                        <a class=" float-left btn btn-outline-info" href="<?php echo base_url().'gambar/'.$perpanjangan->idperpanjang.'_perpanjangan_'.$perpanjangan->pemegang_polis.'/'.$perpanjangan->identitas;?>" download="<?php echo $perpanjangan->identitas; ?>"><i class="fas fa-save"></i> Save</a>
                                     </div>
                                 </div>
 
