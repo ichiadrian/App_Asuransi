@@ -67,7 +67,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status" id="approve" value="2" <?php if($pengajuan_baru->status == 2) echo "selected"; ?> required>
+                                                <input class="form-check-input" type="radio" name="status" id="approve" value="2" <?php if($klaim->status == 2) echo "selected"; ?> required>
                                                 <label class="form-check-label" for="approve">
                                                     Approve
                                                 </label>
@@ -76,7 +76,7 @@
 
                                         <div class="col">
                                             <div class="form-check">
-                                                <input cl`ass="form-check-input" type="radio" name="status" id="reject" value="3" <?php if($pengajuan_baru->status == 3) echo "selected"; ?> required>
+                                                <input cl`ass="form-check-input" type="radio" name="status" id="reject" value="3" <?php if($klaim->status == 3) echo "selected"; ?> required>
                                                 <label class="form-check-label" for="reject">
                                                     Reject
                                                 </label>
