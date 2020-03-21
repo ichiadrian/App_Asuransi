@@ -61,7 +61,7 @@ class C_helpdesk extends CI_Controller {
 
     public function pengajuan_baru($id){
 
-        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan FROM pengajuan_baru
+        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan, status FROM pengajuan_baru
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idasuransi = $id";
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
 
@@ -91,7 +91,7 @@ class C_helpdesk extends CI_Controller {
     
     public function perpanjangan_polis($id){
 
-        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas FROM perpanjangan_polis
+        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas, status FROM perpanjangan_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idperpanjang = $id";
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
 
@@ -121,7 +121,7 @@ class C_helpdesk extends CI_Controller {
     
     public function klaim_polis($id){
 
-        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis FROM klaim_polis
+        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis, status FROM klaim_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idklaim = $id";
         $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
 
