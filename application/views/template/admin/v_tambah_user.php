@@ -23,7 +23,7 @@
                         <div class="card-header">
                             <h3 class="text-center">Tambah User</h3>
                         </div>
-                        <form action="">
+                        <form action="<?php echo base_url().'c_admin/user_baru' ?>" method="post">
                             <div class="card-body">
 
                                 <div class="form-group">

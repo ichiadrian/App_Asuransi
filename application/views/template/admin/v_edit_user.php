@@ -23,12 +23,13 @@
                         <div class="card-header">
                             <h3 class="text-center">Edit User (<?php echo $data_user->username ?>)</h3>
                         </div>
-                        <form action="">
+                        <form action="<?php echo base_url().'c_admin/aksi_update'?>" method="POST">
                             <div class="card-body">
 
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" value="<?php $data_user->username ?>">
+                                    <input type="hidden" name="iduser" value="<?php echo $data_user->iduser ?>">
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" value="<?php echo  $data_user->username ?>">
                                 </div>
 
                                 <div class="form-group">
@@ -42,7 +43,9 @@
                                         <?php 
                                             if(!empty($roles)) { foreach ($roles as $index => $role) {
                                         ?>
-                                            <option value="<?php echo $role->idrole ?>" <?php if($role->idrole == $data_user->role) echo "selected";?>><?php echo $role->rolename; ?></option>
+                                            <option value="<?php echo $role->idrole ?>" <?php if($role->idrole == $data_user->role) echo "selected";?>>
+                                            <?php echo $role->rolename; ?>
+                                            </option>
                                         <?php
                                             } } 
                                         ?>
