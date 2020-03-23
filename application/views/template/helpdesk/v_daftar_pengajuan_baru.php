@@ -65,8 +65,8 @@
                             <table id="table-pengajuan" class="table datatable table-striped table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th>
-                                            <center>Id</center>
+                                        <th width='1'>
+                                            <center>No</center>
                                         </th>
                                         <th>
                                             <center>Pemegang Polis</center>
@@ -87,13 +87,14 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no=1;
                                     if (!empty($pengajuan_baru)) {
                                         foreach ($pengajuan_baru as $index => $pengajuan) {
                                     ?>
 
                                             <tr>
                                                 <td>
-                                                    <center><?php echo $pengajuan->idasuransi; ?></center>
+                                                    <center><?php echo $no++; ?></center>
                                                 </td>
                                                 <td>
                                                     <center><?php echo $pengajuan->pemegang_polis; ?></center>

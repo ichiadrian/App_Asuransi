@@ -32,7 +32,7 @@
                             <table id="table-user" class="table datatable table-striped table-bordered" >
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th> <center>User Id</center></th>
+                                        <th width="1"><center>No</center></th>
                                         <th> <center>Username</center></th>
                                         <th> <center>Role</center></th>
                                         <th> <center>Edit</center></th>
@@ -41,12 +41,13 @@
                                 </thead>
                                 <tbody>
                                     <?php 
+                                    $no=1;
                                         if(!empty($users)){
                                             foreach ($users as $index => $user) {
                                     ?>
 
                                         <tr>
-                                            <td><center><?php echo $user->iduser; ?></center></td>
+                                            <td><center><?php echo $no++; ?></center></td>
                                             <td><center><?php echo $user->username; ?></center></td>
                                             <td><center><?php echo $user->rolename; ?></center></td>
                                             <td><center> <a href="<?php echo base_url().'c_admin/edit_user/'.$user->iduser; ?>"><i class="fas fa-edit text-success"></i></a> </center></td>
