@@ -103,7 +103,7 @@ class C_agency extends CI_Controller {
         if($success == 1)
         {
             // alert kalo success
-            redirect(site_url().'c_agency/pengajuan_baru');
+            redirect(site_url().'c_agency/index');
         }
         else
         {
@@ -143,7 +143,7 @@ class C_agency extends CI_Controller {
         if($success == 1)
         {
             // alert kalo success
-            redirect(site_url().'c_agency/pengajuan_perpanjangan');
+            redirect(site_url().'c_agency/index');
         }
         else
         {

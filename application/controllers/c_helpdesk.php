@@ -49,6 +49,7 @@ class C_helpdesk extends CI_Controller {
         $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput FROM pengajuan_baru
                     INNER JOIN status_polis ON status = idstatus WHERE status = $status";
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result();
+
         $data['param'] = array(
             'status' => $status
         );
@@ -58,19 +59,50 @@ class C_helpdesk extends CI_Controller {
         $this->load->view('template/v_footer');
         
     }
-
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++===+++ PENGAJUAN BARU ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //daftar pending
     public function pengajuan_baru($id){
 
-        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan, status FROM pengajuan_baru
+        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan, keterangan, status FROM pengajuan_baru
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idasuransi = $id";
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
-
+     
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_pengajuan_baru', $data);
         $this->load->view('template/v_footer');
 
     }
-    
+    //daftar approved
+    public function pengajuan_baru_appv($id){
+
+        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan, keterangan, status FROM pengajuan_baru
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 2 AND idasuransi = $id";
+        $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
+        // echo '<pre>';
+        // var_dump($data);
+        // echo '<pre>';
+        // die();
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_pengajuan_baru_view', $data);
+        $this->load->view('template/v_footer');
+
+    }
+    //daftar rejected
+    public function pengajuan_baru_rjct($id){
+
+        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan, keterangan, status FROM pengajuan_baru
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 3 AND idasuransi = $id";
+        $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_pengajuan_baru_view', $data);
+        $this->load->view('template/v_footer');
+
+    }
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++===++ END PENGAJUAN BARU ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ PERPANJANGAN BARU ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public function daftar_perpanjangan_polis(){
 
         $status = $this->input->post('status');
@@ -88,10 +120,10 @@ class C_helpdesk extends CI_Controller {
         $this->load->view('template/v_footer');
         
     }
-    
+    //pending
     public function perpanjangan_polis($id){
 
-        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas, status FROM perpanjangan_polis
+        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas, keterangan, status FROM perpanjangan_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idperpanjang = $id";
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
 
@@ -101,6 +133,34 @@ class C_helpdesk extends CI_Controller {
 
     }
 
+    //approve
+    public function perpanjangan_polis_appv($id){
+
+        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas, keterangan, status FROM perpanjangan_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 2 AND idperpanjang = $id";
+        $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_perpanjangan_polis_view', $data);
+        $this->load->view('template/v_footer');
+
+    }
+    //rejected
+    public function perpanjangan_polis_rjct($id){
+
+        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas, keterangan, status FROM perpanjangan_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 3 AND idperpanjang = $id";
+        $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_perpanjangan_polis_view', $data);
+        $this->load->view('template/v_footer');
+
+    }
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ END PERPANJANGAN BARU ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ KLAIM POLIS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public function daftar_klaim_polis(){
 
         $status = $this->input->post('status');
@@ -118,10 +178,10 @@ class C_helpdesk extends CI_Controller {
         $this->load->view('template/v_footer');
         
     }
-    
+    //pending
     public function klaim_polis($id){
 
-        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis, status FROM klaim_polis
+        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis, keterangan, status FROM klaim_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idklaim = $id";
         $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
 
@@ -130,6 +190,31 @@ class C_helpdesk extends CI_Controller {
         $this->load->view('template/v_footer');
 
     }
+    //approved
+    public function klaim_polis_appv($id){
+
+        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis, keterangan, status FROM klaim_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 2 AND idklaim = $id";
+        $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_klaim_polis_view', $data);
+        $this->load->view('template/v_footer');
+
+    }
+    //rejected
+    public function klaim_polis_rjct($id){
+
+        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis, keterangan, status FROM klaim_polis
+                    INNER JOIN status_polis ON status = idstatus WHERE status = 3 AND idklaim = $id";
+        $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
+
+        $this->load->view('template/v_header');
+        $this->load->view('template/helpdesk/v_klaim_polis_view', $data);
+        $this->load->view('template/v_footer');
+
+    }
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ END KLAIM POLIS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 

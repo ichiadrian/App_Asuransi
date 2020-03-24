@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-secondary">
                         <div class="card-header">
-                            <h3 class="card-title">Pengajuan Asuransi Baru</h3>
+                            <h3 class="card-title">Pengajuan Asuransi Baru (<?php echo $pengajuan_baru->pemegang_polis?>)</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -80,29 +80,28 @@
                                 
                                 <div class="form-group">
                                     <label for="keterangan">Keterangan</label>
-                                    <textarea name="keterangan" id="keterangan" cols="35" rows="5" class="form-control" required></textarea>
+                                    <textarea name="keterangan" id="keterangan" cols="35" rows="5" class="form-control" required><?php echo $pengajuan_baru->keterangan ?></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="status">Status Polis</label>
 
                                     <div class="row">
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status" id="approve" value="2" <?php if($pengajuan_baru->status == 2) echo "selected"; ?> required>
-                                                <label class="form-check-label" for="approve">
-                                                    Approve
-                                                </label>
-                                            </div>
-                                        </div>
 
                                         <div class="col">
-                                            <div class="form-check">
-                                                <input cl`ass="form-check-input" type="radio" name="status" id="reject" value="3" <?php if($pengajuan_baru->status == 3) echo "selected"; ?> required>
-                                                <label class="form-check-label" for="reject">
-                                                    Reject
-                                                </label>
-                                            </div>
+                                        <?php
+                                                if($pengajuan_baru->status== 2) {
+                                            ?>
+                                                <h4 style="color:MediumSeaGreen;">*Dokumen Approved</h4>
+                                            <?php
+                                                }else{ 
+                                               ?>
+                                               <h4 style="color:Tomato;">*Dokumen Rejected</h4>
+                                            <?php
+                                                }
+                                            ?>
+
+                                            
                                         </div>
                                     </div>
                                     
@@ -112,7 +111,7 @@
                                 <input type="hidden" name="id" value="<?php echo $pengajuan_baru->idasuransi; ?>">
                                 <input type="hidden" name="idname" value="idasuransi">
                                 <input type="hidden" name="table_flag" value="pengajuan_baru">
-                                <input type="hidden" name="redirect" value="daftar_pengajuan_baru">
+                                <input type="hidden" name="redirect" value="daftar_perpanjangan_polis">
 
 
                             </div>

@@ -87,6 +87,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                if($param['status'] == 1){
+
                                     $no=1;
                                     if (!empty($pengajuan_baru)) {
                                         foreach ($pengajuan_baru as $index => $pengajuan) {
@@ -116,6 +118,69 @@
                                     <?php
                                         }
                                     }
+                                }elseif($param['status'] == 2){
+
+                                    $no=1;
+                                    if (!empty($pengajuan_baru)) {
+                                        foreach ($pengajuan_baru as $index => $pengajuan) {
+                                    ?>
+
+                                            <tr>
+                                                <td>
+                                                    <center><?php echo $no++; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->pemegang_polis; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->tgl_input; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->penginput; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->nama_status; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center> <a href="<?php echo base_url() . 'c_helpdesk/pengajuan_baru_appv/' . $pengajuan->idasuransi; ?>"><i class="fa fa-eye text-info"></i></a> </center>
+                                                </td>
+                                            </tr>
+
+                                    <?php
+                                        }
+                                    }
+                                }else{
+
+                                    $no=1;
+                                    if (!empty($pengajuan_baru)) {
+                                        foreach ($pengajuan_baru as $index => $pengajuan) {
+                                    ?>
+
+                                            <tr>
+                                                <td>
+                                                    <center><?php echo $no++; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->pemegang_polis; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->tgl_input; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->penginput; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center><?php echo $pengajuan->nama_status; ?></center>
+                                                </td>
+                                                <td>
+                                                    <center> <a href="<?php echo base_url() . 'c_helpdesk/pengajuan_baru_rjct/' . $pengajuan->idasuransi; ?>"><i class="fa fa-eye text-info"></i></a> </center>
+                                                </td>
+                                            </tr>
+
+                                    <?php
+                                        }
+                                    }
+                                }
                                     ?>
                                 </tbody>
                             </table>

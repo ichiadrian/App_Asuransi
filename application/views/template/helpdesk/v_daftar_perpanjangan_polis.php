@@ -73,7 +73,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
+                                    <?php
+                                    if($param['status'] == 1){
+                                        $no=1;
+                                        if(!empty($perpanjangan)){
+                                            foreach ($perpanjangan as $index => $perpanjangan) {
+
+                                    ?>
+                                        <tr>
+                                            <td><center><?php echo $no++; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->pemegang_polis; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->tgl_input; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->penginput; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->nama_status; ?></center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis/'.$perpanjangan->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
+                                        </tr>
+                                    <?php
+                                            }
+                                        }
+                                    }elseif($param['status'] == 2){
                                         $no=1;
                                         if(!empty($perpanjangan)){
                                             foreach ($perpanjangan as $index => $perpanjangan) {
@@ -85,12 +103,31 @@
                                             <td><center><?php echo $perpanjangan->tgl_input; ?></center></td>
                                             <td><center><?php echo $perpanjangan->penginput; ?></center></td>
                                             <td><center><?php echo $perpanjangan->nama_status; ?></center></td>
-                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis/'.$perpanjangan->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis_appv/'.$perpanjangan->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
                                         </tr>
 
                                     <?php
                                             }
-                                        } 
+                                        }  
+                                    }else{
+                                        $no=1;
+                                        if(!empty($perpanjangan)){
+                                            foreach ($perpanjangan as $index => $perpanjangan) {
+                                    ?>
+
+                                        <tr>
+                                            <td><center><?php echo $no++; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->pemegang_polis; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->tgl_input; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->penginput; ?></center></td>
+                                            <td><center><?php echo $perpanjangan->nama_status; ?></center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis_rjct/'.$perpanjangan->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
+                                        </tr>
+
+                                    <?php
+                                            }
+                                        }
+                                    }
                                     ?>
                                 </tbody>
                             </table>

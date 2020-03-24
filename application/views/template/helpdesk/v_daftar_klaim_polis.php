@@ -86,35 +86,97 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    if($param['status'] == 1){
                                     $no=1;
-                                    if (!empty($klaim)) {
-                                        foreach ($klaim as $index => $kl) {
-                                    ?>
+                                        if (!empty($klaim)) {
+                                            foreach ($klaim as $index => $kl) {
+                                        ?>
 
-                                            <tr>
-                                                <td>
-                                                    <center><?php echo $no++; ?></center>
-                                                </td>
-                                                <td>
-                                                    <center><?php echo $kl->pemegang_polis; ?></center>
-                                                </td>
-                                                <td>
-                                                    <center><?php echo $kl->tgl_input; ?></center>
-                                                </td>
-                                                <td>
-                                                    <center><?php echo $kl->penginput; ?></center>
-                                                </td>
-                                                <td>
-                                                    <center><?php echo $kl->nama_status; ?></center>
-                                                </td>
-                                                <td>
-                                                    <center> <a href="<?php echo base_url() . 'c_helpdesk/klaim_polis/' . $kl->idklaim; ?>"><i class="fa fa-eye text-info"></i></a> </center>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td>
+                                                        <center><?php echo $no++; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->pemegang_polis; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->tgl_input; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->penginput; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->nama_status; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center> <a href="<?php echo base_url() . 'c_helpdesk/klaim_polis/' . $kl->idklaim; ?>"><i class="fa fa-eye text-info"></i></a> </center>
+                                                    </td>
+                                                </tr>
 
                                     <?php
+                                            }
                                         }
-                                    }
+                                    }elseif($param['status'] == 2){
+                                        $no=1;
+                                        if (!empty($klaim)) {
+                                            foreach ($klaim as $index => $kl) {
+                                        ?>
+
+                                                <tr>
+                                                    <td>
+                                                        <center><?php echo $no++; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->pemegang_polis; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->tgl_input; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->penginput; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->nama_status; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center> <a href="<?php echo base_url() . 'c_helpdesk/klaim_polis_appv/' . $kl->idklaim; ?>"><i class="fa fa-eye text-info"></i></a> </center>
+                                                    </td>
+                                                </tr>
+
+                                    <?php
+                                            }
+                                        }
+                                    }else{
+                                        $no=1;
+                                        if (!empty($klaim)) {
+                                            foreach ($klaim as $index => $kl) {
+                                        ?>
+
+                                                <tr>
+                                                    <td>
+                                                        <center><?php echo $no++; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->pemegang_polis; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->tgl_input; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->penginput; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $kl->nama_status; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center> <a href="<?php echo base_url() . 'c_helpdesk/klaim_polis_rjct/' . $kl->idklaim; ?>"><i class="fa fa-eye text-info"></i></a> </center>
+                                                    </td>
+                                                </tr>
+
+                                    <?php
+                                            }
+                                        }
+                                    }    
                                     ?>
                                 </tbody>
                             </table>
