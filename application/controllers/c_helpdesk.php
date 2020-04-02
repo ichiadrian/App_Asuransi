@@ -44,10 +44,18 @@ class C_helpdesk extends CI_Controller {
     public function daftar_pengajuan_baru(){
 
         $status = $this->input->post('status');
-        if($status == "") $status = 1;
+        // $bulan = $this->input->post('bulan');
+        // $tahun = $this->input->post('tahun');
 
-        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput FROM pengajuan_baru
+        // if($status == "") $status = 1;
+        // if($bulan == "") $bulan = "04";
+        // if($tahun == "") $tahun = date('Y');
+
+        // JANGAN DIBACA WKWKKW
+        $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, tgl_perubahan_status FROM pengajuan_baru
                     INNER JOIN status_polis ON status = idstatus WHERE status = $status";
+                    //AND YEAR(`tgl_perubahan_status`) IN ($tahun) AND MONTH(`tgl_perubahan_status`) IN ($bulan)
+
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result();
 
         $data['param'] = array(
@@ -59,6 +67,7 @@ class C_helpdesk extends CI_Controller {
         $this->load->view('template/v_footer');
         
     }
+
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++===+++ PENGAJUAN BARU ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //daftar pending
     public function pengajuan_baru($id){

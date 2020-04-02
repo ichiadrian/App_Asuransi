@@ -93,6 +93,14 @@
 <!-- <script src="<?php echo base_url().'assets/dist/js/pages/dashboard.js'?>"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url().'assets/dist/js/demo.js'?>"></script>
+
+<!-- EXPORT EXCEL -->
+<script src="<?php echo base_url().'assets/DTExport/buttons.flash.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/DTExport/dataTables.buttons.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/DTExport/jszip.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/DTExport/pdfmake.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/DTExport/buttons.html5.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/DTExport/buttons.print.min.js'?>"></script>
   
   
 </head>
@@ -192,6 +200,7 @@
 
           <!----------------------------------------- HELP DESK ROLE ----------------------------------------->
           <?php if($this->session->userdata['role'] == 2) {?>
+
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user-tie"></i>
@@ -221,6 +230,7 @@
                 </li>
               </ul>
             </li>
+
           <?php }?>
           <!----------------------------------------- END OF HELP DESK ROLE ----------------------------------------->
 
@@ -258,7 +268,7 @@
               </ul>
             </li>
           <?php }?>
-          <!-------------------------------------------- END OFAGENCY ROLE -------------------------------------------->
+          <!-------------------------------------------- END OF AGENCY ROLE -------------------------------------------->
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
