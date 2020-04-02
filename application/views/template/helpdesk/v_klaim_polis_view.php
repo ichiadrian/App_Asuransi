@@ -107,7 +107,13 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <?php
+                                    if($klaim->status < 2) {
+                                ?>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                <?php
+                                    }
+                                ?>
                             </div>
                         </form>
                     </div>

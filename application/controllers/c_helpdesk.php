@@ -66,6 +66,9 @@ class C_helpdesk extends CI_Controller {
         $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan, keterangan, status FROM pengajuan_baru
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idasuransi = $id";
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
+
+        $data['pengajuan_baru']->pemegang_polis = strtolower(str_replace(" ", "_", $data['pengajuan_baru']->pemegang_polis));
+
      
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_pengajuan_baru', $data);
@@ -82,6 +85,9 @@ class C_helpdesk extends CI_Controller {
         // var_dump($data);
         // echo '<pre>';
         // die();
+
+        $data['pengajuan_baru']->pemegang_polis = strtolower(str_replace(" ", "_", $data['pengajuan_baru']->pemegang_polis));
+
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_pengajuan_baru_view', $data);
         $this->load->view('template/v_footer');
@@ -93,6 +99,9 @@ class C_helpdesk extends CI_Controller {
         $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, form_permohonan, identitas, bukti_transfer, buku_tabungan, keterangan, status FROM pengajuan_baru
                     INNER JOIN status_polis ON status = idstatus WHERE status = 3 AND idasuransi = $id";
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result()[0];
+
+        $data['pengajuan_baru']->pemegang_polis = strtolower(str_replace(" ", "_", $data['pengajuan_baru']->pemegang_polis));
+
 
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_pengajuan_baru_view', $data);
@@ -127,6 +136,9 @@ class C_helpdesk extends CI_Controller {
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idperpanjang = $id";
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
 
+        $data['perpanjangan']->pemegang_polis = strtolower(str_replace(" ", "_", $data['perpanjangan']->pemegang_polis));
+
+
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_perpanjangan_polis', $data);
         $this->load->view('template/v_footer');
@@ -140,6 +152,9 @@ class C_helpdesk extends CI_Controller {
                     INNER JOIN status_polis ON status = idstatus WHERE status = 2 AND idperpanjang = $id";
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
 
+        $data['perpanjangan']->pemegang_polis = strtolower(str_replace(" ", "_", $data['perpanjangan']->pemegang_polis));
+
+
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_perpanjangan_polis_view', $data);
         $this->load->view('template/v_footer');
@@ -151,6 +166,9 @@ class C_helpdesk extends CI_Controller {
         $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, perpanjangan_polis, identitas, keterangan, status FROM perpanjangan_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = 3 AND idperpanjang = $id";
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result()[0];
+
+        $data['perpanjangan']->pemegang_polis = strtolower(str_replace(" ", "_", $data['perpanjangan']->pemegang_polis));
+
 
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_perpanjangan_polis_view', $data);
@@ -185,6 +203,8 @@ class C_helpdesk extends CI_Controller {
                     INNER JOIN status_polis ON status = idstatus WHERE status = 1 AND idklaim = $id";
         $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
 
+        $data['klaim']->pemegang_polis = strtolower(str_replace(" ", "_", $data['klaim']->pemegang_polis));
+
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_klaim_polis', $data);
         $this->load->view('template/v_footer');
@@ -197,6 +217,9 @@ class C_helpdesk extends CI_Controller {
                     INNER JOIN status_polis ON status = idstatus WHERE status = 2 AND idklaim = $id";
         $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
 
+        $data['klaim']->pemegang_polis = strtolower(str_replace(" ", "_", $data['klaim']->pemegang_polis));
+
+
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_klaim_polis_view', $data);
         $this->load->view('template/v_footer');
@@ -208,6 +231,9 @@ class C_helpdesk extends CI_Controller {
         $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, pengajuan_klaim, identitas, form_polis, keterangan, status FROM klaim_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = 3 AND idklaim = $id";
         $data['klaim'] = $this->m_data->raw_query($query)->result()[0];
+
+        $data['klaim']->pemegang_polis = strtolower(str_replace(" ", "_", $data['klaim']->pemegang_polis));
+
 
         $this->load->view('template/v_header');
         $this->load->view('template/helpdesk/v_klaim_polis_view', $data);
