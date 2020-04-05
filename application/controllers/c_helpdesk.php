@@ -44,19 +44,19 @@ class C_helpdesk extends CI_Controller {
     public function daftar_pengajuan_baru(){
 
         $status = $this->input->post('status');
-        // $bulan = $this->input->post('bulan');
-        // $tahun = $this->input->post('tahun');
+        $bulan = $this->input->post('bulan');
+        $tahun = $this->input->post('tahun');
 
-        // if($status == "") $status = 1;
-        // if($bulan == "") $bulan = "04";
-        // if($tahun == "") $tahun = date('Y');
+        if($status == "") $status = 1;
+        if($bulan == "") $bulan = date("n");
+        if($tahun == "") $tahun = date('Y');
 
         // JANGAN DIBACA WKWKKW
         $query = "SELECT idasuransi, pemegang_polis, nama_status, tgl_input, penginput, tgl_perubahan_status FROM pengajuan_baru
-                    INNER JOIN status_polis ON status = idstatus WHERE status = $status";
-                    //AND YEAR(`tgl_perubahan_status`) IN ($tahun) AND MONTH(`tgl_perubahan_status`) IN ($bulan)
-
+                    INNER JOIN status_polis ON status = idstatus WHERE status = $status AND month(tgl_perubahan_status) = $bulan AND YEAR(tgl_perubahan_status) = $tahun";
+                    //SELECT * FROM `pengajuan_baru` WHERE month(tgl_input) = 3 AND YEAR(tgl_input) = 2020
         $data['pengajuan_baru'] = $this->m_data->raw_query($query)->result();
+        $data['sql'] = $query;
 
         $data['param'] = array(
             'status' => $status
