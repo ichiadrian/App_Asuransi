@@ -24,32 +24,7 @@
 
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="row">
 
-                <div class="col-3 px-3">
-
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control" id="status" name="status">
-                            <option value="1" <?php if ($param['status'] == 1) echo "selected"; ?>>Pending</option>
-                            <option value="2" <?php if ($param['status'] == 2) echo "selected"; ?>>Approved</option>
-                            <option value="3" <?php if ($param['status'] == 3) echo "selected"; ?>>Rejected</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-3 px-3">
-
-                </div>
-
-                <div class="col-3 px-3 float-right">
-
-                </div>
-
-                <div class="col-3 px-3 float-right">
-                    <div class="form-group text-right">
-                        <br>
-                        <button type="submit" class="btn btn-primary mt-2">Filter</button>
-                    </div>
-                </div>
+                <?php include __DIR__.'/../status_month_year_filter.php'; ?>
 
             </form>
 
