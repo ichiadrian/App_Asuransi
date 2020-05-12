@@ -48,3 +48,8 @@
         </select>
     </div>
 </div>
+
+<div class="col-3 px-3 float-right">
+    <br>
+    <button type="submit" class="col btn btn-primary mt-2">Filter Data</button>
+</div>
