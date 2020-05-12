@@ -124,6 +124,10 @@
 <script>
 
     $(document).ready(function(){
-        $("#table-pengajuan").DataTable();
+        $("#table-pengajuan").DataTable({dom: 'Bfrtip',
+            buttons: [
+               'excel', 'pdf'
+            ]
+        });
     })
 </script>
