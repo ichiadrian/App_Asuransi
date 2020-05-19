@@ -95,7 +95,7 @@
 <script src="<?php echo base_url().'assets/dist/js/demo.js'?>"></script>
 
 <!-- EXPORT EXCEL -->
-<!-- <script src="<?php echo base_url().'assets/DTExport/buttons.flash.min.js'?>"></script> -->
+<script src="<?php echo base_url().'assets/DTExport/buttons.flash.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/DTExport/dataTables.buttons.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/DTExport/jszip.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/DTExport/pdfmake.min.js'?>"></script>
