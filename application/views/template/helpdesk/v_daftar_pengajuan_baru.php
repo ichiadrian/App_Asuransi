@@ -80,6 +80,7 @@
 
                                             if($param['status'] == 1) $datestatus = "---";
 
+                                            //untuk link menuju ke function controller
                                             if ($param['status'] == 1) $link = 'pengajuan_baru/';
                                             if ($param['status'] == 2) $link = 'pengajuan_baru_appv/';
                                             if ($param['status'] == 3) $link = 'pengajuan_baru_rjct/';
@@ -137,7 +138,7 @@
         $("#table-pengajuan").DataTable({
             dom: 'Bfrtip',
             buttons: [
-               'excel', 'pdf'
+               'excel'
             ]
         });
     })

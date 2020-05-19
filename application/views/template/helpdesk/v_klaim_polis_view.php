@@ -108,9 +108,10 @@
 
                             <div class="card-footer">
                                 <?php
-                                    if($klaim->status < 2) {
+                                    if($klaim->status > 1) {
                                 ?>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                     <a href="<?php echo site_url().'c_helpdesk/daftar_pengajuan_baru' ?>" style="float: right;"class=" btn btn-light btn-outline-dark pull-right">
+                                     <i class="fa fa-arrow-left"></i>Kembali</a>
                                 <?php
                                     }
                                 ?>

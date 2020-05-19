@@ -49,6 +49,9 @@
                                             <center>Tanggal Input</center>
                                         </th>
                                         <th>
+                                            <center>Tanggal Approve / Reject</center>
+                                        </th>
+                                        <th>
                                             <center>Agency</center>
                                         </th>
                                         <th>
@@ -65,6 +68,10 @@
                                     $no=1;
                                         if (!empty($klaim)) {
                                             foreach ($klaim as $index => $kl) {
+                                                $datestatus = date_create($kl->tgl_perubahan_status);
+                                                $datestatus = date_format($datestatus, "d M Y");
+    
+                                                if($param['status'] == 1) $datestatus = "---";
                                         ?>
 
                                                 <tr>
@@ -76,6 +83,9 @@
                                                     </td>
                                                     <td>
                                                         <center><?php echo $kl->tgl_input; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $datestatus; ?></center>
                                                     </td>
                                                     <td>
                                                         <center><?php echo $kl->penginput; ?></center>
@@ -95,6 +105,10 @@
                                         $no=1;
                                         if (!empty($klaim)) {
                                             foreach ($klaim as $index => $kl) {
+                                                $datestatus = date_create($kl->tgl_perubahan_status);
+                                                $datestatus = date_format($datestatus, "d M Y");
+    
+                                                if($param['status'] == 1) $datestatus = "---";
                                         ?>
 
                                                 <tr>
@@ -106,6 +120,9 @@
                                                     </td>
                                                     <td>
                                                         <center><?php echo $kl->tgl_input; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $datestatus; ?></center>
                                                     </td>
                                                     <td>
                                                         <center><?php echo $kl->penginput; ?></center>
@@ -125,6 +142,10 @@
                                         $no=1;
                                         if (!empty($klaim)) {
                                             foreach ($klaim as $index => $kl) {
+                                                $datestatus = date_create($kl->tgl_perubahan_status);
+                                                $datestatus = date_format($datestatus, "d M Y");
+    
+                                                if($param['status'] == 1) $datestatus = "---";
                                         ?>
 
                                                 <tr>
@@ -136,6 +157,9 @@
                                                     </td>
                                                     <td>
                                                         <center><?php echo $kl->tgl_input; ?></center>
+                                                    </td>
+                                                    <td>
+                                                        <center><?php echo $datestatus; ?></center>
                                                     </td>
                                                     <td>
                                                         <center><?php echo $kl->penginput; ?></center>
@@ -175,7 +199,7 @@
         $("#table-pengajuan").DataTable({
             dom: 'Bfrtip',
             buttons: [
-               'excel', 'pdf'
+               'excel'
             ]
         });
     })

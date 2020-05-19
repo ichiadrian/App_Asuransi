@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-secondary">
                         <div class="card-header">
-                            <h3 class="card-title">Pengajuan Asuransi Baru</h3>
+                            <h3 class="card-title">Pengajuan Asuransi Baru ( <?php echo $pengajuan_baru->pemegang_polis?> )</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->

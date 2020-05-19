@@ -131,7 +131,7 @@ class C_helpdesk extends CI_Controller {
         if($bulan == "") $bulan = date("n");
         if($tahun == "") $tahun = date('Y');
 
-        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput FROM perpanjangan_polis
+        $query = "SELECT idperpanjang, pemegang_polis, nama_status, tgl_input, penginput, tgl_perubahan_status FROM perpanjangan_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = $status AND month(tgl_perubahan_status) = $bulan AND YEAR(tgl_perubahan_status) = $tahun";
         $data['perpanjangan'] = $this->m_data->raw_query($query)->result();
         $data['param'] = array(
@@ -204,7 +204,7 @@ class C_helpdesk extends CI_Controller {
         if($bulan == "") $bulan = date("n");
         if($tahun == "") $tahun = date('Y');
 
-        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput FROM klaim_polis
+        $query = "SELECT idklaim, pemegang_polis, nama_status, tgl_input, penginput, tgl_perubahan_status FROM klaim_polis
                     INNER JOIN status_polis ON status = idstatus WHERE status = $status AND month(tgl_perubahan_status) = $bulan AND YEAR(tgl_perubahan_status) = $tahun";
         $data['klaim'] = $this->m_data->raw_query($query)->result();
         $data['param'] = array(

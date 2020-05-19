@@ -42,6 +42,7 @@
                                         <th width='1'> <center>No</center></th>
                                         <th> <center>Pemegang Polis</center></th>
                                         <th> <center>Tanggal Input</center></th>
+                                        <th> <center>Tanggal Approve / Reject</center></th>
                                         <th> <center>Agency</center></th>
                                         <th> <center>Status</center></th>
                                         <th> <center>View</center></th>
@@ -52,16 +53,20 @@
                                     if($param['status'] == 1){
                                         $no=1;
                                         if(!empty($perpanjangan)){
-                                            foreach ($perpanjangan as $index => $perpanjangan) {
-
+                                            foreach ($perpanjangan as $index => $perpanjangan_baru) {
+                                                $datestatus = date_create($perpanjangan_baru->tgl_perubahan_status);
+                                                $datestatus = date_format($datestatus, "d M Y");
+    
+                                                if($param['status'] == 1) $datestatus = "---";
                                     ?>
                                         <tr>
                                             <td><center><?php echo $no++; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->pemegang_polis; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->tgl_input; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->penginput; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->nama_status; ?></center></td>
-                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis/'.$perpanjangan->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
+                                            <td><center><?php echo $perpanjangan_baru->pemegang_polis; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->tgl_input; ?></center></td>
+                                            <td><center><?php echo $datestatus; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->penginput; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->nama_status; ?></center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis/'.$perpanjangan_baru->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
                                         </tr>
                                     <?php
                                             }
@@ -69,16 +74,17 @@
                                     }elseif($param['status'] == 2){
                                         $no=1;
                                         if(!empty($perpanjangan)){
-                                            foreach ($perpanjangan as $index => $perpanjangan) {
+                                            foreach ($perpanjangan as $index => $perpanjangan_baru) {
                                     ?>
 
                                         <tr>
                                             <td><center><?php echo $no++; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->pemegang_polis; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->tgl_input; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->penginput; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->nama_status; ?></center></td>
-                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis_appv/'.$perpanjangan->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
+                                            <td><center><?php echo $perpanjangan_baru->pemegang_polis; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->tgl_input; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->tgl_perubahan_status; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->penginput; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->nama_status; ?></center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis_appv/'.$perpanjangan_baru->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
                                         </tr>
 
                                     <?php
@@ -87,16 +93,17 @@
                                     }else{
                                         $no=1;
                                         if(!empty($perpanjangan)){
-                                            foreach ($perpanjangan as $index => $perpanjangan) {
+                                            foreach ($perpanjangan as $index => $perpanjangan_baru) {
                                     ?>
 
                                         <tr>
                                             <td><center><?php echo $no++; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->pemegang_polis; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->tgl_input; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->penginput; ?></center></td>
-                                            <td><center><?php echo $perpanjangan->nama_status; ?></center></td>
-                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis_rjct/'.$perpanjangan->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
+                                            <td><center><?php echo $perpanjangan_baru->pemegang_polis; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->tgl_input; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->tgl_perubahan_status; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->penginput; ?></center></td>
+                                            <td><center><?php echo $perpanjangan_baru->nama_status; ?></center></td>
+                                            <td><center> <a href="<?php echo base_url().'c_helpdesk/perpanjangan_polis_rjct/'.$perpanjangan_baru->idperpanjang;?>"><i class="fa fa-eye text-info"></i></a> </center></td>
                                         </tr>
 
                                     <?php
@@ -126,7 +133,7 @@
     $(document).ready(function(){
         $("#table-pengajuan").DataTable({dom: 'Bfrtip',
             buttons: [
-               'excel', 'pdf'
+               'excel'
             ]
         });
     })
